@@ -1,2 +1,142 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  background: pink;
+}
+
+.user {
+  float: right;
+  margin-bottom: 30px;
+  width: 40px;
+}
+
+h1 {
+  clear: both;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 60px;
+  text-align: center;
+}
+
+.gameboard {
+  background: pink;
+  display: block;
+  height: 510px;
+  margin: 10px auto;
+  position: relative;
+  width: 510px;
+}
+
+.circle {
+  background: black;
+  border-radius: 50%;
+  float: left;
+  height: 150px;
+  margin-left: 15px;
+  margin-top: 15px;
+  width: 150px;
+}
+
+.score {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 60px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.playerOne {
+  float: left;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 60px;
+  margin-top: 10px;
+}
+
+.playerTwo {
+  float: right;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 60px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.restart {
+  clear: both;
+  font-family: 'Bungee Shade', cursive;
+  text-align: center;
+}
+
+footer {
+  clear: both;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+  position: relative;
+  margin-top: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+.user {
+  float: right;
+  margin-bottom: 5px;
+  width: 25px;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: -14px;
+}
+
+.gameboard {
+  background: pink;
+  display: block;
+  height: 320px;
+  margin-bottom: 10px;
+  position: relative;
+  width: 330px;
+}
+
+.circle {
+  background: black;
+  border-radius: 50%;
+  float: left;
+  height: 85px;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 85px;
+}
+
+.score {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 30px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.playerOne {
+  float: left;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.playerTwo {
+  float: right;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.restart {
+  font-family: 'Bungee Shade', cursive;
+  text-align: center;
+}
+
+footer {
+  clear: both;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 8px;
+  margin-top: 5px;
+  text-align: center;
+}
+}
