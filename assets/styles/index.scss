@@ -2,7 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  background: pink;
+  background: #ffcOcb;
 }
 
 .user {
@@ -19,7 +19,7 @@ h1 {
 }
 
 .gameboard {
-  background: pink;
+  background: #ffcOcb;
   display: block;
   height: 510px;
   margin: 10px auto;
@@ -28,7 +28,7 @@ h1 {
 }
 
 .circle {
-  background: black;
+  background: #000;
   border-radius: 50%;
   float: left;
   height: 150px;
@@ -40,7 +40,7 @@ h1 {
 .score {
   font-family: 'Bungee Shade', cursive;
   font-size: 60px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -69,74 +69,74 @@ footer {
   clear: both;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 15px;
-  position: relative;
-  margin-top: 20px;
   height: 20px;
+  margin-top: 20px;
+  position: relative;
   text-align: center;
 }
 
 @media (max-width: 500px) {
-.user {
-  float: right;
-  margin-bottom: 5px;
-  width: 25px;
-}
+  .user {
+    float: right;
+    margin-bottom: 5px;
+    width: 25px;
+  }
 
-h1 {
-  font-size: 35px;
-  margin-bottom: -14px;
-}
+  h1 {
+    font-size: 35px;
+    margin-bottom: -14px;
+  }
 
-.gameboard {
-  background: pink;
-  display: block;
-  height: 320px;
-  margin-bottom: 10px;
-  position: relative;
-  width: 330px;
-}
+  .gameboard {
+    background: #ffcOcb;
+    display: block;
+    height: 320px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 330px;
+  }
 
-.circle {
-  background: black;
-  border-radius: 50%;
-  float: left;
-  height: 85px;
-  margin-left: 20px;
-  margin-top: 20px;
-  width: 85px;
-}
+  .circle {
+    background: #000;
+    border-radius: 50%;
+    float: left;
+    height: 85px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 85px;
+  }
 
-.score {
-  font-family: 'Bungee Shade', cursive;
-  font-size: 30px;
-  margin-bottom: 0px;
-  text-align: center;
-}
+  .score {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 30px;
+    margin-bottom: 0;
+    text-align: center;
+  }
 
-.playerOne {
-  float: left;
-  font-family: 'Bungee Shade', cursive;
-  font-size: 30px;
-  margin-top: 10px;
-}
+  .playerOne {
+    float: left;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 30px;
+    margin-top: 10px;
+  }
 
-.playerTwo {
-  float: right;
-  font-family: 'Bungee Shade', cursive;
-  font-size: 30px;
-  margin-top: 10px;
-}
+  .playerTwo {
+    float: right;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 30px;
+    margin-top: 10px;
+  }
 
-.restart {
-  font-family: 'Bungee Shade', cursive;
-  text-align: center;
-}
+  .restart {
+    font-family: 'Bungee Shade', cursive;
+    text-align: center;
+  }
 
-footer {
-  clear: both;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 8px;
-  margin-top: 5px;
-  text-align: center;
-}
-}
+  footer {
+    clear: both;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 8px;
+    margin-top: 5px;
+    text-align: center;
+  }
+  }

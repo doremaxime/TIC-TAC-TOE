@@ -10,12 +10,23 @@ $(() => {
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example');
 
-// use require without a reference to ensure a file is bundled
-const bookEvents = require('./books/events');
-// On Document ready
+const authEvents = require('./auth/events.js');
+
+// On document ready
 $(() => {
-  $('#book-search').on('submit', bookEvents.onGetBooks);
-  $('#book-destroy').on('submit', bookEvents.onDeleteBook);
-  $('#edit-book').on('submit', bookEvents.onPatchBook);
-  $('#add-book').on('submit', bookEvents.onPostBook);
+  authEvents.addHandlers();
 });
+
+
+
+
+
+// // use require without a reference to ensure a file is bundled
+// const bookEvents = require('./books/events');
+// // On Document ready
+// $(() => {
+//   $('#book-search').on('submit', bookEvents.onGetBooks);
+//   $('#book-destroy').on('submit', bookEvents.onDeleteBook);
+//   $('#edit-book').on('submit', bookEvents.onPatchBook);
+//   $('#add-book').on('submit', bookEvents.onPostBook);
+// });
