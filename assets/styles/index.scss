@@ -1,8 +1,10 @@
 // $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 // @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+$pink: #ffcOcb;
+$black: #000;
 
 body {
-  background: ffcOcb;
+  background: $pink;
 }
 
 .user {
@@ -19,7 +21,7 @@ h1 {
 }
 
 .gameboard {
-  background: #ffcOcb;
+  background: $pink;
   display: block;
   height: 510px;
   margin: 10px auto;
@@ -28,7 +30,7 @@ h1 {
 }
 
 .circle {
-  background: #000;
+  background: $black;
   border-radius: 50%;
   float: left;
   height: 150px;
@@ -44,14 +46,14 @@ h1 {
   text-align: center;
 }
 
-.playerOne {
+.player-1 {
   float: left;
   font-family: 'Bungee Shade', cursive;
   font-size: 60px;
   margin-top: 10px;
 }
 
-.playerTwo {
+.player-2 {
   float: right;
   font-family: 'Bungee Shade', cursive;
   font-size: 60px;
@@ -97,7 +99,7 @@ footer {
   }
 
   .circle {
-    background: #000;
+    background: $black;
     border-radius: 50%;
     float: left;
     height: 85px;
@@ -113,14 +115,14 @@ footer {
     text-align: center;
   }
 
-  .playerOne {
+  .player-1 {
     float: left;
     font-family: 'Bungee Shade', cursive;
     font-size: 30px;
     margin-top: 10px;
   }
 
-  .playerTwo {
+  .player-2 {
     float: right;
     font-family: 'Bungee Shade', cursive;
     font-size: 30px;
