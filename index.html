@@ -23,16 +23,25 @@
       <header>
             <img class="user" src="http://simpleicon.com/wp-content/uploads/multy-user.png" alt="user">
         </header>
+
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <label>
+              Email: <input type="email" name="credentials[email]">
+              Password: <input type="password" name="credentials[password]">
+              Confirm Password: <input type="password" name="credentials[password_confirmation]">
+            </label>
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+        </form>
+
         <form id="sign-in">
           <fieldset>
           <legend>Sign in!</legend>
           <label>
-            Email
-            <input type="text" name="credentials[email]">
-          </label>
-          <label>
-            Password
-            <input type="password" name="credentials[password]">
+            Email: <input type="email" name="credentials[email]">
+            Password: <input type="password" name="credentials[password]">
           </label>
           <input type="submit" name="submit" value="Sign in!">
         </fieldset>
@@ -42,36 +51,12 @@
         <fieldset>
           <legend>Change Password!</legend>
           <label>
-            Current Password
-            <input type="password" name="passwords[old]">
+            Current Password: <input type="password" name="passwords[old]">
+            New Password: <input type="password" name="passwords[new]">
           </label>
-          <label>
-            New Password
-            <input type="password" name="passwords[new]">
-          </label>
-
           <input type="submit" name="submit" value="Change Password!">
         </fieldset>
       </form>
-
-        <form id="sign-up">
-          <fieldset>
-            <legend>Sign up!</legend>
-            <label>
-              Email
-              <input type="text" name="credentials[email]">
-            </label>
-            <label>
-              Password
-              <input type="password" name="credentials[password]">
-            </label>
-            <label>
-              Passsword Confirmation
-              <input type="password" name="credentials[password_confirmation]">
-            </label>
-            <input type="submit" name="submit" value="Sign up!">
-          </fieldset>
-        </form>
 
         <form id="sign-out">
           <fieldset>

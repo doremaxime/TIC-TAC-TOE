@@ -31,7 +31,6 @@
 
 
 
-
 //Create new games on the server. (CREATE)      ?
 //Update a game by storing new moves. (UPDATE)  ?
 
@@ -85,5 +84,5 @@ function variableBoggle(tray, coordinates, traySize) {
 }
 
 function boggle(tray, coordinates) {
-  return variableBoggle(tray, coordinates, 4);
+  return variableBoggle(tray, coordinates, 3);
 }

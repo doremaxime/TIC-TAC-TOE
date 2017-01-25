@@ -2,10 +2,10 @@
 
 const onSuccess = function (data) {
 //  debugger;
-  if (data.book) {
-    console.log(data.book);
+  if (data.user) {
+    console.log(data.user);
   } else {
-    console.table(data.books);
+    console.table(data.users);
   }
 };
 
@@ -14,15 +14,15 @@ const onError = function (response) {
 };
 
 const onDeleteSuccess = function () {
-  console.log('Book was successfully deleted.');
+  console.log('User was successfully deleted.');
 };
 
 const onPatchSuccess = function () {
-  console.log('Book was successfully edited.');
+  console.log('User was successfully edited.');
 };
 
 const onPostSuccess = function () {
-  console.log('Book was successfully added.');
+  console.log('User was successfully added.');
 };
 
 module.exports = {
