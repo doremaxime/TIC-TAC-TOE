@@ -16,14 +16,14 @@ const show = function (id) {
   });
 };
 
-const destroy = function(id){
+const destroy = function (id) {
   return $.ajax({
     url: config.apiOrigin + '/users/' + id,
     method: 'DELETE',
   });
 };
 
-const patch = function(id, data){
+const patch = function (id, data) {
   return $.ajax({
     url: config.apiOrigin + '/users/' + id,
     method: 'PATCH',
@@ -31,7 +31,7 @@ const patch = function(id, data){
   });
 };
 
-const post = function(data){
+const post = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/users/',
     method: 'POST',
