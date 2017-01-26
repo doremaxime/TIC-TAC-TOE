@@ -1,16 +1,37 @@
-// $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-// @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-$pink: #ffcOcb;
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$pink: #ffc0cb;
 $black: #000;
+$lightpink: #faa;
 
 body {
-  background: $pink;
+  background-color: $pink;
 }
 
-.user {
+.modal-body, .modal-header {
+  background-color: $lightpink;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.btn {
   float: right;
-  margin-bottom: 30px;
-  width: 40px;
+}
+
+.modal-titles {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.modal-info {
+  font-size: 15px;
+  text-align: left;
+}
+
+.modal-button {
+  font-size: 15px;
+  text-align: center;
 }
 
 h1 {
@@ -21,7 +42,7 @@ h1 {
 }
 
 .gameboard {
-  background: $pink;
+  background-color: $pink;
   display: block;
   height: 510px;
   margin: 10px auto;
@@ -30,7 +51,7 @@ h1 {
 }
 
 .circle {
-  background: $black;
+  background-color: $black;
   border-radius: 50%;
   float: left;
   height: 150px;
@@ -64,6 +85,7 @@ h1 {
 .restart {
   clear: both;
   font-family: 'Bungee Shade', cursive;
+  font-size: 30px;
   text-align: center;
 }
 
@@ -90,7 +112,7 @@ footer {
   }
 
   .gameboard {
-    background: #ffcOcb;
+    background-color: $pink;
     display: block;
     height: 320px;
     margin-bottom: 10px;
@@ -99,7 +121,7 @@ footer {
   }
 
   .circle {
-    background: $black;
+    background-color: $black;
     border-radius: 50%;
     float: left;
     height: 85px;

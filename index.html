@@ -18,55 +18,90 @@
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body class="container-fluid">
 
-      <!-- API Token Auth -->
       <header>
-            <img class="user" src="http://simpleicon.com/wp-content/uploads/multy-user.png" alt="user">
-        </header>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Users Logins
+        </button>
 
-        <form id="sign-up">
-          <fieldset>
-            <legend>Sign up!</legend>
-            <label>
-              Email: <input type="email" name="credentials[email]">
-              Password: <input type="password" name="credentials[password]">
-              Confirm Password: <input type="password" name="credentials[password_confirmation]">
-            </label>
-            <input type="submit" name="submit" value="Sign up!">
-          </fieldset>
-        </form>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+              </div>
+              <div class="modal-body">
 
-        <form id="sign-in">
-          <fieldset>
-          <legend>Sign in!</legend>
-          <label>
-            Email: <input type="email" name="credentials[email]">
-            Password: <input type="password" name="credentials[password]">
-          </label>
-          <input type="submit" name="submit" value="Sign in!">
-        </fieldset>
-      </form>
+                <!-- Start of API Token Auth -->
+                <form class="modal-button" id="sign-up">
+                  <fieldset>
+                    <legend class="modal-titles">Sign up!</legend>
+                    <label class="modal-info">
+                      Email: <br><input type="email" name="credentials[email]"><br>
+                      Password: <br><input type="password" name="credentials[password]"><br>
+                      Confirm Password: <br><input type="password" name="credentials[password_confirmation]">
+                    </label><br>
+                    <input type="submit" name="submit" value="Sign up!">
+                  </fieldset>
+                </form>
 
-      <form id="change-password">
-        <fieldset>
-          <legend>Change Password!</legend>
-          <label>
-            Current Password: <input type="password" name="passwords[old]">
-            New Password: <input type="password" name="passwords[new]">
-          </label>
-          <input type="submit" name="submit" value="Change Password!">
-        </fieldset>
-      </form>
+                <br>
+                <br>
 
-        <form id="sign-out">
-          <fieldset>
-            <legend>Sign Out!</legend>
-            <input type="submit" name="submit" value="Sign Out!">
-          </fieldset>
-        </form>
-        <!-- End of API Token Auth -->
+                <form class="modal-button" id="sign-in">
+                  <fieldset>
+                  <legend class="modal-titles">Sign in!</legend>
+                  <label class="modal-info">
+                    Email: <br><input type="email" name="credentials[email]"><br>
+                    Password: <br><input type="password" name="credentials[password]"><br>
+                  </label><br>
+                  <input type="submit" name="submit" value="Sign in!">
+                </fieldset>
+              </form>
+
+              <br>
+              <br>
+
+              <form class="modal-button" id="change-password">
+                <fieldset>
+                  <legend class="modal-titles">Change Password!</legend>
+                  <label class="modal-info">
+                    Current Password: <br><input type="password" name="passwords[old]"><br>
+                    New Password: <br><input type="password" name="passwords[new]"><br>
+                  </label><br>
+                  <input type="submit" name="submit" value="Change Password!"><br>
+                </fieldset>
+              </form>
+
+              <br>
+              <br>
+
+                <form class="modal-button" id="sign-out">
+                  <fieldset>
+                    <legend class="modal-titles">Sign Out!</legend>
+                    <input type="submit" name="submit" value="Sign Out!">
+                  </fieldset>
+                </form>
+                <!-- End of API Token Auth -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
 
 
         <h1>Tic-Tac-Max</h1>
