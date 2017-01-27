@@ -1,5 +1,6 @@
 'use strict';
 
+
 // 3rd game engine
 
 // Make a new 9-element array and set every element to an empty string.
@@ -79,7 +80,4 @@ const setToken = function (a, b) {
 
 module.exports = {
   setToken,
-  checkEachIndex,
-  checkWinner,
-  gameBoard,
 };
