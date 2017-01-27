@@ -3,14 +3,14 @@
 // 3rd game engine
 
 // Make a new 9-element array and set every element to an empty string.
-let gameBoard = new Array(9).fill('');
+let gameBoard = ['','','','','','','','',''];
 // this is an array, which forms a '3x3' box.
 let winner;
 let token = 'x';
 
 function checkEachIndex(e) {
   // check all gameBoard indexes are not empty.
-  gameBoard.every(e === ['','','']);
+  gameBoard.every(e === '');
 }
 
 // if there are 3 of the same token in a row, then that token wins.
@@ -21,8 +21,9 @@ function checkWinner() {
   for (let i = 0; i <= win.length; i++) {
     if (win[i] === ['x','x','x'] || ['o','o','o']) {
       winner = token;
+      return (winner + ' wins!');
     } else if (checkEachIndex() === true) {
-      // it's a tie
+      return ("it's a tie");
     }
   }
 }
@@ -30,7 +31,8 @@ function checkWinner() {
 // inserts token into array.
 const setToken = function (a, b) {
   // a = the index, b = the token we insert.
-  gameBoard.splice(a, 0, b);
+  gameBoard[a] = b;
+  // gameBoard.splice(a, 0, b); splice is not the right tool.
   // check for a winner/tie.
   checkWinner();
 };
@@ -40,6 +42,7 @@ module.exports = {
   setToken,
   checkEachIndex,
   checkWinner,
+  gameBoard,
 };
 
 // This example function takes an array index and a player token as arguments.
