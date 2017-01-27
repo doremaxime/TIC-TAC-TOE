@@ -1,10 +1,21 @@
 'use strict';
-
+const index = require('./index');
 
 // 3rd game engine
 
 // Make a new 9-element array and set every element to an empty string.
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
+
+let count = 0;
+let user = 'x';
+
+function counter() {
+  if (count%2 === 0) {
+    user = 'x';
+  } else {
+    user = 'o';
+  }
+}
 
 // winning combinations
 let win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
@@ -60,6 +71,7 @@ function switchTurn(b) {
   } else {
     b = 'x';
   }
+  count++;
 }
 
 // inserts token into array.
@@ -68,6 +80,8 @@ const setToken = function (a, b) {
   // a = the index, b = the token we insert.
   if (gameBoard[a] === '') {
     gameBoard[a] = b;
+    addHandlers();
+    counter();
     switchTurn();
   } else {
     console.log('already taken');

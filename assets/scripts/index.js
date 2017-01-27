@@ -21,10 +21,16 @@ $(() => {
   $('#add-user').on('submit', authEvents.onPostUser);
 });
 
-const addHandlers = () => {
-  $('.circle').on('click', function () {
-    let message = $('<span>x</span>');
-    $(this).append(message);
-    $(this).remove();
+// i need a to be able to click on an id within the class gameboard, which inserts the token and disables the click.
+const addHandlers = (user, count) => {
+  $('.gameboard').find('div').on('click',function () {
+    $(this).text(user);
+    count++;
   });
+};
+addHandlers();
+
+
+module.exports = {
+  addHandlers,
 };
