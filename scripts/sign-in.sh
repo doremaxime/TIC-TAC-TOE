@@ -6,6 +6,11 @@ curl "${API}${API_PATH}" \
   --request POST \
   --data-urlencode "'${DATA}'"
 
+  #
+  # from auth api solution branch
+  #   --data-urlencode "credentials[email]=$EMAIL" \
+  #   --data-urlencode "credentials[password]=$PASSWORD"
+
 # --header "Content-Type: application/x-www-form-urlencoded"
 
 # data output from curl doesn't have a trailing newline

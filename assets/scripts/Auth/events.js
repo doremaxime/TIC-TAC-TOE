@@ -1,37 +1,71 @@
 'use strict';
 
-const api = require('./api.js');
-const ui = require('./ui.js');
+const getFormFields = require(`../../../lib/get-form-fields`);
 
-const getFormFields = require('../../../lib/get-form-fields');
+const api = require('./api');
+const ui = require('./ui');
 
-const onPostUser = function (event) {
+const store = require ('../store');
+
+const onSignUp = function (event) {
   event.preventDefault();
+
   let data = getFormFields(event.target);
-  api.post(data)
-    .then(ui.onPostSuccess)
-    .catch(ui.onError);
+
+  api.signUp(data)
+    .then(ui.success)
+    .catch(ui.failure);
 };
 
-const onPatchUser = function (event) {
+const onSignIn = function (event) {
   event.preventDefault();
+
   let data = getFormFields(event.target);
-  console.log(data);
-  api.patch(data.user.id, data)
-    .then(ui.onPatchSuccess)
-    .catch(ui.onError);
+
+  api.signIn(data)
+  .then((response) => {
+    store.user = response.user;
+    return store.user;
+  })
+    .then(ui.success)
+    .then(() => {
+    console.log(store);
+  })
+    .catch(ui.failure);
 };
 
-const onDeleteUser = function (event) {
+const onChangePassword = function (event) {
   event.preventDefault();
+
   let data = getFormFields(event.target);
-  api.destroy(data.user.id, data)
-    .then(ui.onDeleteSuccess)
-    .catch(ui.onError);
+
+  api.changePassword(data)
+    .then(ui.success)
+    .catch(ui.failure)
+    ;
+};
+
+const onSignOut = function (event) {
+  event.preventDefault();
+
+  api.signOut()
+    .then(() => {
+      delete store.user;
+      return store;
+    })
+    .then(ui.success)
+    .catch(ui.failure)
+    ;
+};
+
+const addHandlers = () => {
+  $('#sign-up').on('submit', onSignUp);
+  $('#sign-in').on('submit', onSignIn);
+  $('#change-password').on('submit', onChangePassword);
+  $('#sign-out').on('submit', onSignOut);
+
 };
 
 module.exports = {
-  onPostUser,
-  onPatchUser,
-  onDeleteUser,
+  addHandlers,
 };

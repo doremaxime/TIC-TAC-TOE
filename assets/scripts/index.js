@@ -2,7 +2,6 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin');
 const config = require('./config');
-const ticTacToe = require('./gameEngine');
 
 $(() => {
   setAPIOrigin(location, config);
@@ -20,17 +19,3 @@ $(() => {
   $('#edit-user').on('submit', authEvents.onPatchUser);
   $('#add-user').on('submit', authEvents.onPostUser);
 });
-
-// i need a to be able to click on an id within the class gameboard, which inserts the token and disables the click.
-const addHandlers = (user, count) => {
-  $('.gameboard').find('div').on('click',function () {
-    $(this).text(user);
-    count++;
-  });
-};
-addHandlers();
-
-
-module.exports = {
-  addHandlers,
-};

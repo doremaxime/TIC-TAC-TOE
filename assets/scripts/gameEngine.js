@@ -1,5 +1,5 @@
 'use strict';
-const index = require('./index');
+//const handlers = require('./handlers');
 
 // 3rd game engine
 
@@ -15,6 +15,7 @@ function counter() {
   } else {
     user = 'o';
   }
+  count++;
 }
 
 // winning combinations
@@ -71,7 +72,6 @@ function switchTurn(b) {
   } else {
     b = 'x';
   }
-  count++;
 }
 
 // inserts token into array.
@@ -80,9 +80,9 @@ const setToken = function (a, b) {
   // a = the index, b = the token we insert.
   if (gameBoard[a] === '') {
     gameBoard[a] = b;
-    addHandlers();
-    counter();
+    //addHandlers(user, count);
     switchTurn();
+    counter();
   } else {
     console.log('already taken');
   }
@@ -91,6 +91,33 @@ const setToken = function (a, b) {
   checkWinner();
 
 };
+
+// i need a to be able to click on an id within the class gameboard, which inserts the token and disables the click.
+$(document).ready(function() {
+  const addHandlers = () => {
+    $('.gameboard').click(function () {
+      $('.gameboard').closest('.circle').append(user);
+      setToken();
+    });
+  };
+});
+
+// const addHandlers = () => {
+//   $('#TL').on('click', setToken);
+//   $('#TC').on('click', setToken);
+//   $('#TR').on('click', setToken);
+//   $('#ML').on('click', setToken);
+//   $('#MC').on('click', setToken);
+//   $('#MR').on('click', setToken);
+//   $('#BL').on('click', setToken);
+//   $('#BC').on('click', setToken);
+//   $('#BR').on('click', setToken);
+// };
+
+// document.addEventListener("click", function(){
+//     document.getElementsByClassNames("circle").innerHTML = "Hello World!";
+// });
+
 
 module.exports = {
   setToken,

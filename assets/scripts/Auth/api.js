@@ -1,48 +1,49 @@
 'use strict';
 
-const config = require('../config.js');
+const config = require('../config');
+const store = require ('../store');
 
-const index = function () {
+const signUp = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/users',
-    method: 'GET',
-  });
-};
-
-const show = function (id) {
-  return $.ajax({
-    url: config.apiOrigin + '/users/' + id,
-    method: 'GET',
-  });
-};
-
-const destroy = function (id) {
-  return $.ajax({
-    url: config.apiOrigin + '/users/' + id,
-    method: 'DELETE',
-  });
-};
-
-const patch = function (id, data) {
-  return $.ajax({
-    url: config.apiOrigin + '/users/' + id,
-    method: 'PATCH',
-    data,
-  });
-};
-
-const post = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/users/',
+    url: config.apiOrigin + '/sign-up',
     method: 'POST',
     data,
   });
 };
 
+const signIn = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/sign-in',
+    method: 'POST',
+    data,
+  });
+};
+
+
+const changePassword = function (data) {
+  return $.ajax({
+    url: `${config.apiOrigin}/change-password/${store.user.id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+    data,
+  });
+};
+
+const signOut = function () {
+  return $.ajax({
+    url: `${config.apiOrigin}/sign-out/${store.user.id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
 module.exports = {
-  index,
-  show,
-  destroy,
-  patch,
-  post,
+  signUp,
+  signIn,
+  changePassword,
+  signOut,
 };
