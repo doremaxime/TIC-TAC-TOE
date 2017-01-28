@@ -6,7 +6,9 @@
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 
 let count = 0;
-let user = 'x';
+let user;
+let numberOfXWins = 0;
+let numberOfOWins = 0;
 
 // winning combinations
 let win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
@@ -14,8 +16,11 @@ let win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0,
 // when reset, all array indexes are back to '' (empty).
 function restart() {
   gameBoard = ['', '', '', '', '', '', '', '', ''];
+  count = 0;
+  user = 'o';
 }
 
+// this function is for use in the checkWinner function.
 function checkEachIndex() {
   // check all gameBoard indexes are not empty.
   if ((gameBoard[0], gameBoard[1], gameBoard[2], gameBoard[3], gameBoard[4],
@@ -38,6 +43,7 @@ function checkWinner() {
                    (gameBoard[0] === 'x' && gameBoard[4] === 'x' && gameBoard[8] === 'x') ||
                    (gameBoard[2] === 'x' && gameBoard[4] === 'x' && gameBoard[6] === 'x')) {
       console.log('x wins!');
+      numberOfXWins++;
       restart();
     } else if (win[i] === (gameBoard[0] === 'o' && gameBoard[1] === 'o' && gameBoard[2] === 'o') ||
                    (gameBoard[3] === 'o' && gameBoard[4] === 'o' && gameBoard[5] === 'o') ||
@@ -48,6 +54,7 @@ function checkWinner() {
                    (gameBoard[0] === 'o' && gameBoard[4] === 'o' && gameBoard[8] === 'o') ||
                    (gameBoard[2] === 'o' && gameBoard[4] === 'o' && gameBoard[6] === 'o')) {
       console.log('o wins!');
+      numberOfOWins++;
       restart();
     } else if (checkEachIndex() === true) {
       return ("it's a tie");
@@ -55,35 +62,36 @@ function checkWinner() {
   }
 }
 
-// switch turns, needs to be tested.
-function switchTurn(b) {
-  if (b === 'x') {
-    b = 'o';
-  } else {
-    b = 'x';
-  }
-}
-
 // inserts token into array.
-const setToken = function () {
-  if (count % 2 === 0) {
-    this.innerHTML = 'x';
-    checkWinner();
-    switchTurn();
+const setToken = function (index) {
+  if ((count % 2 === 0) && (gameBoard[index] === '')) {
+    gameBoard[index] = 'x';
     count++;
-  } else if ((count % 2 !== 0) && this.innerHTML === '') {
-    this.innerHTML = 'o';
-    checkWinner();
-    switchTurn();
+    user = 'o';
+    console.log('1.3');
+  } else if ((count % 2 !== 0) && (gameBoard[index] === '')) {
+    gameBoard[index] = 'o';
     count++;
+    user = 'x';
   } else {
     console.log('already taken');
   }
+
+  checkWinner();
 };
 
-$('.circle').on('click', function () {
-  $(this).closest('.circle').append(user);
+$('.gameboard').on('click', function () {
+  $(this).closest('.circle').append(setToken());
+  $(this).click(false);
 });
+
+$('.restart').on('click', function () {
+  restart();
+});
+
+module.exports = {
+  setToken,
+};
 
 // document.getElementById("TL").addEventListener("click", function( event ) {
 //   // display the current click count inside the clicked div
@@ -173,6 +181,10 @@ $('.circle').on('click', function () {
 //
 // };
 
-module.exports = {
-  setToken,
-};
+// let switchUser = function () {
+//   if (user = 'o') {
+//     user = 'x';
+//   } else {
+//     user = 'o';
+//   }
+// }

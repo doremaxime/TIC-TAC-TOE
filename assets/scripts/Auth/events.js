@@ -58,14 +58,36 @@ const onSignOut = function (event) {
     ;
 };
 
+const onCreateGames = function (event) {
+  event.preventDefault();
+
+  let data = getFormFields(event.target);
+
+  api.createGames(data)
+    .then(ui.success)
+    .catch(ui.failure);
+};
+
+const onShowGames = function (event) {
+  event.preventDefault();
+
+  let data = getFormFields(event.target);
+
+  api.showGames(data)
+    .then(ui.success)
+    .catch(ui.failure);
+};
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
-
+  $('.showInfo').on('submit', onShowGames);
 };
 
 module.exports = {
   addHandlers,
+  onShowGames,
+  onCreateGames,
 };

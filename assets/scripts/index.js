@@ -16,6 +16,7 @@ const authEvents = require('./auth/events.js');
 
 // On Document ready
 $(() => {
+  authEvents.addHandlers();
   $('#user-destroy').on('submit', authEvents.onDeleteUser);
   $('#edit-user').on('submit', authEvents.onPatchUser);
   $('#add-user').on('submit', authEvents.onPostUser);
@@ -28,4 +29,6 @@ $(() => {
   $('#BL').on('click', gameEngine.setToken);
   $('#BC').on('click', gameEngine.setToken);
   $('#BR').on('click', gameEngine.setToken);
+  $('.restart').on('click', gameEngine.restart);
+  $('.showInfo').on('click', gameEngine.showInfo);
 });
