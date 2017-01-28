@@ -1,7 +1,7 @@
 'use strict';
 
 const config = require('../config');
-const store = require ('../store');
+const store = require('../store');
 
 const signUp = function (data) {
   return $.ajax({
@@ -18,7 +18,6 @@ const signIn = function (data) {
     data,
   });
 };
-
 
 const changePassword = function (data) {
   return $.ajax({

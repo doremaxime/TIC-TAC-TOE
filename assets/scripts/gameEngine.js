@@ -1,5 +1,4 @@
 'use strict';
-//const handlers = require('./handlers');
 
 // 3rd game engine
 
@@ -8,15 +7,6 @@ let gameBoard = ['', '', '', '', '', '', '', '', ''];
 
 let count = 0;
 let user = 'x';
-
-function counter() {
-  if (count%2 === 0) {
-    user = 'x';
-  } else {
-    user = 'o';
-  }
-  count++;
-}
 
 // winning combinations
 let win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
@@ -75,32 +65,80 @@ function switchTurn(b) {
 }
 
 // inserts token into array.
-const setToken = function (a, b) {
-
-  // a = the index, b = the token we insert.
-  if (gameBoard[a] === '') {
-    gameBoard[a] = b;
-    //addHandlers(user, count);
+const setToken = function () {
+  if (count % 2 === 0) {
+    this.innerHTML = 'x';
+    checkWinner();
     switchTurn();
-    counter();
+    count++;
+  } else if ((count % 2 !== 0) && this.innerHTML === '') {
+    this.innerHTML = 'o';
+    checkWinner();
+    switchTurn();
+    count++;
   } else {
     console.log('already taken');
   }
-
-  // check for a winner/tie.
-  checkWinner();
-
 };
 
-// i need a to be able to click on an id within the class gameboard, which inserts the token and disables the click.
-$(document).ready(function() {
-  const addHandlers = () => {
-    $('.gameboard').click(function () {
-      $('.gameboard').closest('.circle').append(user);
-      setToken();
-    });
-  };
+$('.circle').on('click', function () {
+  $(this).closest('.circle').append(user);
 });
+
+// document.getElementById("TL").addEventListener("click", function( event ) {
+//   // display the current click count inside the clicked div
+//   event.target.innerHTML = "hi" + event.detail;
+// }, false);
+
+// $("#TL").on('click', function(event){
+//   console.log("event is ", event);
+// });
+
+// $('.gameboard').on('click', function () {
+//   console.log('hi');
+// });
+//
+// $(document).ready(function() {
+//   $('.gameboard').on('click', function () {
+//     console.log('hi');
+//   });
+// });
+//
+// $(document).ready(function() {
+//   $('.gameboard').on('click', '.circle', function () {
+//     console.log('hi');
+//   });
+// });
+//
+// $(document).ready(function() {
+//   $('.gameboard').click(function () {
+//     console.log('hi');
+//   });
+// });
+
+// // i want to be able to click on a circle, and have an x or o appear.
+//   $('.circle').on('click', function () {
+//     if ($(this).html() === '') {
+//       if (count%2 === 0) {
+//         user = 'x';
+//       } else {
+//         user = 'o';
+//       }
+//       $(this).html(user);
+//       setToken();
+//     }
+//   });
+//
+//
+// // i need a to be able to click on an id within the class gameboard, which inserts the token and disables the click.
+// $(document).ready(function() {
+//   const addHandlers = () => {
+//     $('.gameboard').click(function () {
+//       $('.gameboard').closest('.circle').append(user);
+//       setToken();
+//     });
+//   };
+// });
 
 // const addHandlers = () => {
 //   $('#TL').on('click', setToken);
@@ -118,6 +156,22 @@ $(document).ready(function() {
 //     document.getElementsByClassNames("circle").innerHTML = "Hello World!";
 // });
 
+// original plain js setToken function// inserts token into array.
+// const setToken = function (a, b) {
+//
+//   // a = the index, b = the token we insert.
+//   if (gameBoard[a] === '') {
+//     gameBoard[a] = b;
+//     switchTurn();
+//     counter();
+//   } else {
+//     console.log('already taken');
+//   }
+//
+//   // check for a winner/tie.
+//   checkWinner();
+//
+// };
 
 module.exports = {
   setToken,
