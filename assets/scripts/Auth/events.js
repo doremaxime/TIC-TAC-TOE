@@ -83,17 +83,17 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
   $('.showInfo').on('submit', onShowGames);
-  $('#0').on('click', gameEngine.upDateVisualBoard);
-  $('#1').on('click', gameEngine.upDateVisualBoard);
-  $('#2').on('click', gameEngine.upDateVisualBoard);
-  $('#3').on('click', gameEngine.upDateVisualBoard);
-  $('#4').on('click', gameEngine.upDateVisualBoard);
-  $('#5').on('click', gameEngine.upDateVisualBoard);
-  $('#6').on('click', gameEngine.upDateVisualBoard);
-  $('#7').on('click', gameEngine.upDateVisualBoard);
-  $('#8').on('click', gameEngine.upDateVisualBoard);
+  $('#0').on('click', gameEngine.upDateBoards);
+  $('#1').on('click', gameEngine.upDateBoards);
+  $('#2').on('click', gameEngine.upDateBoards);
+  $('#3').on('click', gameEngine.upDateBoards);
+  $('#4').on('click', gameEngine.upDateBoards);
+  $('#5').on('click', gameEngine.upDateBoards);
+  $('#6').on('click', gameEngine.upDateBoards);
+  $('#7').on('click', gameEngine.upDateBoards);
+  $('#8').on('click', gameEngine.upDateBoards);
   $('.restart').on('click', gameEngine.restart);
-  $('.showInfo').on('click', gameEngine.showInfo);
+  $('.showInfo').on('click', gameEngine.showInfo); //gameEngine?!
 };
 
 module.exports = {

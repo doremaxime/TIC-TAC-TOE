@@ -1,6 +1,6 @@
 'use strict';
 
-const addHandlers = require('./auth/events');
+//do i even need this?
 
 // 3rd game engine
 
@@ -69,26 +69,23 @@ let switchUser = function () {
 };
 
 // the user clicks on an ID, and sets off:
-const upDateLogicBoard = function () {
-    gameBoard[parseInt(event.target.id)] = user;
-    checkWinner();
-    switchUser();
-
-};
-
-// the user clicks on an ID, and sets off:
-const upDateVisualBoard = function () {
+const upDateBoards = function (event) {
+  console.log('click has been registered');
 
   //adds the user token to the id only if it is empty.
-  if ($(event.target).text() === '') {
-    $(event.target).text(user);
-    upDateLogicBoard();
+  if ($(event.target.id).text() === '') {
+    $(event.target.id).text(user);
+    gameBoard[parseInt(event.target.id)] = user;
+    console.log(gameBoard);
+    checkWinner();
+    switchUser();
   } else {
+    console.log('2');
     $('.message').text('already taken');
   }
 };
 
 module.exports = {
-  upDateVisualBoard,
-  restart,
+upDateBoards,
+restart,
 };
