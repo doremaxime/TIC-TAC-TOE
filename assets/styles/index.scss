@@ -5,6 +5,7 @@ $pink: #ffc0cb;
 $black: #000;
 $lightpink: #faa;
 
+
 body {
   background-color: $pink;
 }
@@ -54,10 +55,14 @@ h1 {
 .circle {
   background-color: $black;
   border-radius: 50%;
+  color: $pink;
   float: left;
+  font-size: 100px;
   height: 150px;
+  line-height: -40px;
   margin-left: 15px;
   margin-top: 15px;
+  text-align: center;
   width: 150px;
 }
 
@@ -68,30 +73,32 @@ h1 {
   text-align: center;
 }
 
-.player-1 {
-  float: left;
-  font-family: 'Bungee Shade', cursive;
-  font-size: 60px;
-  margin-top: 10px;
-}
-
-.player-2 {
-  float: right;
-  font-family: 'Bungee Shade', cursive;
-  font-size: 60px;
-  margin-bottom: 30px;
-  margin-top: 10px;
-}
+// .player-1 {
+//   float: left;
+//   font-family: 'Bungee Shade', cursive;
+//   font-size: 60px;
+//   margin-top: 10px;
+// }
+//
+// .player-2 {
+//   float: right;
+//   font-family: 'Bungee Shade', cursive;
+//   font-size: 60px;
+//   margin-bottom: 30px;
+//   margin-top: 10px;
+// }
 
 .restart {
   clear: both;
   font-family: 'Bungee Shade', cursive;
   font-size: 30px;
   text-align: center;
+  width: 100%;
 }
 
 .message {
-  background: $lightpink;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 30px;
   text-align: center;
   width: 100%;
 }
@@ -144,19 +151,19 @@ footer {
     text-align: center;
   }
 
-  .player-1 {
-    float: left;
-    font-family: 'Bungee Shade', cursive;
-    font-size: 30px;
-    margin-top: 10px;
-  }
-
-  .player-2 {
-    float: right;
-    font-family: 'Bungee Shade', cursive;
-    font-size: 30px;
-    margin-top: 10px;
-  }
+  // .player-1 {
+  //   float: left;
+  //   font-family: 'Bungee Shade', cursive;
+  //   font-size: 30px;
+  //   margin-top: 10px;
+  // }
+  //
+  // .player-2 {
+  //   float: right;
+  //   font-family: 'Bungee Shade', cursive;
+  //   font-size: 30px;
+  //   margin-top: 10px;
+  // }
 
   .restart {
     font-family: 'Bungee Shade', cursive;
