@@ -1,4 +1,5 @@
 'use strict';
+//const addHandlers = require('./auth/events');
 
 // 3rd game engine
 
@@ -9,6 +10,7 @@ let count = 0;
 let user = 'x';
 let numberOfXWins = 0;
 let numberOfOWins = 0;
+//let circle = $('.circle');
 
 // when reset, all array indexes are back to '' (empty).
 function restart() {
@@ -61,28 +63,61 @@ function checkWinner() {
 let switchUser = function () {
   if (user === 'x') {
     user = 'o';
-  } else {
+  } else if (user === 'o'){
     user = 'x';
+  } else {
+    console.log('already taken');
+    $('.message').text('already taken');
+  }
+};
+
+const visualBoard = function () {
+  for (let i = 0; i < gameBoard.length; i++) {
+    if (gameBoard[i] !== '') {
+        console.log('already taken');
+        $('.message').text('already taken');
+    } else if (gameBoard[i] === 'x') {
+        $('#' + i).text('x');
+        gameBoard[parseInt(event.target.id)] = user;
+        switchUser();
+    } else if (gameBoard[i] === 'o'){
+        $('#' + i).text('o');
+        gameBoard[parseInt(event.target.id)] = user;
+        switchUser();
+    }
   }
 };
 
 // inserts token into array.
 const setToken = function () {
-    if ($(event.target).text() === '') {
-      $(event.target).text(user);
-      console.log(1);
-      gameBoard[parseInt(event.target.id)] = user;
-      console.log(gameBoard);
-    } else {
-      console.log('already taken');
-      $('.message').text('already taken');
-    }
-
+    console.log(1);
+  visualBoard();
+    console.log(2);
   checkWinner();
-  switchUser();
+    console.log(3);
+    console.log(gameBoard);
 };
 
 module.exports = {
   setToken,
   restart,
 };
+
+// // inserts token into array.
+// const setToken = function () {
+//   console.log(1);
+//   circle.on('click', function (event) {
+//   console.log(2);
+//     if ($(event.target).text() === '') {
+//       console.log(3);
+//       $(event.target).text(user);
+//       gameBoard[parseInt(event.target.id)] = user;
+//       checkWinner();
+//       switchUser();
+//       console.log(gameBoard);
+//     } else {
+//       console.log('already taken');
+//       $('.message').text('already taken');
+//     }
+//   });
+// };

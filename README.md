@@ -16,4 +16,14 @@ Tehnology used:
   •	Macbook Air.
   •	Google Chrome, Atom.
 
+A user should:
+  •	be able to sign up.
+  •	be able to sign in.
+  •	be able to sign ou.
+  •	be able to change passwords.
+  •	play a game.
+  •	See her stats.
+  •	not have any web dev bugs.
+  •	want to play again.
+
 Development:
