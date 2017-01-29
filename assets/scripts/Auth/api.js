@@ -51,14 +51,14 @@ const createGames = function (data) {
   });
 };
 
-const postGames = function (data) {
+const postGames = function () { //(data)
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
     headers: {
       Authorization: `Token token=${store.user.token}`,
     },
-    data,
+    //data,
   });
 };
 

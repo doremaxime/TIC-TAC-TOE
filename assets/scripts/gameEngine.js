@@ -16,6 +16,8 @@ let win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0,
 // when reset, all array indexes are back to '' (empty).
 function restart() {
   gameBoard = ['', '', '', '', '', '', '', '', ''];
+  $('.circle').text('');
+  $('.winMessage').text('');
   count = 0;
   user = 'o';
 }
@@ -44,8 +46,8 @@ function checkWinner() {
                    (gameBoard[0] === 'x' && gameBoard[4] === 'x' && gameBoard[8] === 'x') ||
                    (gameBoard[2] === 'x' && gameBoard[4] === 'x' && gameBoard[6] === 'x')) {
       // console.log('x wins!');
+      $('.winMessage').text('X won!');
       numberOfXWins++;
-      restart();
     } else if (win[i] === (gameBoard[0] === 'o' && gameBoard[1] === 'o' && gameBoard[2] === 'o') ||
                    (gameBoard[3] === 'o' && gameBoard[4] === 'o' && gameBoard[5] === 'o') ||
                    (gameBoard[6] === 'o' && gameBoard[7] === 'o' && gameBoard[8] === 'o') ||
@@ -55,10 +57,11 @@ function checkWinner() {
                    (gameBoard[0] === 'o' && gameBoard[4] === 'o' && gameBoard[8] === 'o') ||
                    (gameBoard[2] === 'o' && gameBoard[4] === 'o' && gameBoard[6] === 'o')) {
       console.log('o wins!');
+      $('.winMessage').text('O won!');
       numberOfOWins++;
-      restart();
     } else if (checkEachIndex() === true) {
-      return ("it's a tie");
+      console.log('tie');
+      $('.winMessage').text('It is a tie');
     }
   }
 }

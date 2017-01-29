@@ -58,15 +58,15 @@ const onSignOut = function (event) {
     ;
 };
 
-const onCreateGames = function (event) {
-  event.preventDefault();
-
-  let data = getFormFields(event.target);
-
-  api.createGames(data)
-    .then(ui.success)
-    .catch(ui.failure);
-};
+// const onCreateGames = function (event) {
+//   event.preventDefault();
+//
+//   let data = getFormFields(event.target);
+//
+//   api.createGames(data)
+//     .then(ui.success)
+//     .catch(ui.failure);
+// };
 
 const onShowGames = function (event) {
   event.preventDefault();
@@ -87,7 +87,10 @@ const addHandlers = () => {
 };
 
 module.exports = {
+  onSignUp,
+  onSignIn,
+  onSignOut
   addHandlers,
   onShowGames,
-  onCreateGames,
+  // onCreateGames,
 };
