@@ -31,5 +31,4 @@ $(() => {
   $('#BR').on('click', gameEngine.setToken(8));
   $('.restart').on('click', gameEngine.restart);
   $('.showInfo').on('click', gameEngine.showInfo);
-
 });

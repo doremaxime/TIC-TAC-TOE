@@ -89,7 +89,7 @@ const addHandlers = () => {
 module.exports = {
   onSignUp,
   onSignIn,
-  onSignOut
+  onSignOut,
   addHandlers,
   onShowGames,
   // onCreateGames,
