@@ -10,7 +10,7 @@ const failure = (error) => {
 
 const showGamesSuccess = (data) => {
   $('.showInfo').show();
-  $('.showInfo').text(data.games.length);
+  $('.showInfo').text(data.games);
 };
 
 module.exports = {

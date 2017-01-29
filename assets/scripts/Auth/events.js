@@ -12,8 +12,8 @@ const onSignUp = function (event) {
   let data = getFormFields(event.target);
 
   api.signUp(data)
-    .then(ui.success)
-    .catch(ui.failure);
+  .then(ui.signUpSuccess)
+  .catch(ui.signUpFailure);
 };
 
 const onSignIn = function (event) {
@@ -30,7 +30,8 @@ const onSignIn = function (event) {
     .then(() => {
     console.log(store);
   })
-    .catch(ui.failure);
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure);
 };
 
 const onChangePassword = function (event) {
@@ -39,8 +40,8 @@ const onChangePassword = function (event) {
   let data = getFormFields(event.target);
 
   api.changePassword(data)
-    .then(ui.success)
-    .catch(ui.failure)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
     ;
 };
 
@@ -52,8 +53,8 @@ const onSignOut = function (event) {
       delete store.user;
       return store;
     })
-    .then(ui.success)
-    .catch(ui.failure)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutSuccess)
     ;
 };
 
@@ -73,8 +74,8 @@ const onShowGames = function (event) {
   let data = getFormFields(event.target);
 
   api.showGames(data)
-    .then(ui.success)
-    .catch(ui.failure);
+    .then(ui.showGamesSuccess)
+    .catch(ui.showGamesFailure);
 };
 
 const addHandlers = () => {
@@ -82,7 +83,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
-  $('.showInfo').on('submit', onShowGames);
+  $('.show-game-info').on('submit', onShowGames);
   $('#0').on('click', gameEngine.upDateBoards);
   $('#1').on('click', gameEngine.upDateBoards);
   $('#2').on('click', gameEngine.upDateBoards);
@@ -93,7 +94,7 @@ const addHandlers = () => {
   $('#7').on('click', gameEngine.upDateBoards);
   $('#8').on('click', gameEngine.upDateBoards);
   $('.restart').on('click', gameEngine.restart);
-  $('.showInfo').on('click', gameEngine.showInfo); //gameEngine?!
+//  $('.showInfo').on('click', gameEngine.showInfo); //gameEngine?!
 };
 
 module.exports = {

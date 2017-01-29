@@ -27,3 +27,6 @@ A user should:
   •	want to play again.
 
 Development:
+  Spend first 2.5 days on game logic for node. HUGE TIME WASTE
+  1.5 day on jquery - should practice more
+  1.5 day on APIs - read more on this!
