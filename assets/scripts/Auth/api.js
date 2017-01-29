@@ -58,6 +58,7 @@ const postGames = function () { //(data)
     headers: {
       Authorization: `Token token=${store.user.token}`,
     },
+
     //data,
   });
 };

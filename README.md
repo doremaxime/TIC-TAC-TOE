@@ -1,4 +1,4 @@
-This is a tic-tac-toe game.
+A SPA tic-tac-toe game.
 It is a two player game with logins.
 The objective of the game is two have a row of your token.
 
@@ -10,3 +10,10 @@ the goals were:
 	•	Build a dynamic game that allows two players to compete (bonus: compete from separate devices)
 	•	Craft a readme.md file that explains your app to the world
 	•	Communicate with a back-end (which we'll provide for you) to store the state of your game.
+
+Tehnology used:
+  •	Javasrcipt, CSS, SCSS, JQuery, AJAX, API.
+  •	Macbook Air.
+  •	Google Chrome, Atom.
+
+Development:
