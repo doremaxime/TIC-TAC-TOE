@@ -6,7 +6,7 @@
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 
 let count = 0;
-let user;
+let user = 'x';
 let numberOfXWins = 0;
 let numberOfOWins = 0;
 
@@ -34,6 +34,7 @@ function checkWinner() {
 
   // if one of these indexes is composed of the same token, then that token wins.
   for (let i = 0; i <= 7; i++) {
+    console.log(1);
     if (win[i] === (gameBoard[0] === 'x' && gameBoard[1] === 'x' && gameBoard[2] === 'x') ||
                    (gameBoard[3] === 'x' && gameBoard[4] === 'x' && gameBoard[5] === 'x') ||
                    (gameBoard[6] === 'x' && gameBoard[7] === 'x' && gameBoard[8] === 'x') ||
@@ -42,7 +43,7 @@ function checkWinner() {
                    (gameBoard[2] === 'x' && gameBoard[5] === 'x' && gameBoard[8] === 'x') ||
                    (gameBoard[0] === 'x' && gameBoard[4] === 'x' && gameBoard[8] === 'x') ||
                    (gameBoard[2] === 'x' && gameBoard[4] === 'x' && gameBoard[6] === 'x')) {
-      console.log('x wins!');
+      // console.log('x wins!');
       numberOfXWins++;
       restart();
     } else if (win[i] === (gameBoard[0] === 'o' && gameBoard[1] === 'o' && gameBoard[2] === 'o') ||
@@ -64,34 +65,34 @@ function checkWinner() {
 
 // inserts token into array.
 const setToken = function (index) {
-  if ((count % 2 === 0) && (gameBoard[index] === '')) {
-    gameBoard[index] = 'x';
-    count++;
-    user = 'o';
-    console.log('1.3');
-  } else if ((count % 2 !== 0) && (gameBoard[index] === '')) {
-    gameBoard[index] = 'o';
-    count++;
-    user = 'x';
-  } else {
-    console.log('already taken');
+  if (gameBoard[index] === '') {
+    gameBoard[index] = user;
+    if (user === 'x') {
+      user = 'o';
+    } else if (user === 'o') {
+      user = 'x';
+    } else {
+      console.log('already taken');
+    }
   }
 
   checkWinner();
 };
 
-$('.gameboard').on('click', function () {
-  $(this).closest('.circle').append(setToken());
-  $(this).click(false);
-});
-
-$('.restart').on('click', function () {
-  restart();
-});
-
 module.exports = {
   setToken,
 };
+
+
+// const updateBoard = function () {
+//   for (let i = 0; i < gameBoard.length; i++) {
+//     if (gameBoard[i] === 'x') {
+//       $('#' + i).text('x');
+//     } else if (gameBoard[i] === 'o') {
+//       $('#' + i).text('o');
+//     }
+//   }
+// };
 
 // document.getElementById("TL").addEventListener("click", function( event ) {
 //   // display the current click count inside the clicked div
@@ -138,7 +139,6 @@ module.exports = {
 //   });
 //
 //
-// // i need a to be able to click on an id within the class gameboard, which inserts the token and disables the click.
 // $(document).ready(function() {
 //   const addHandlers = () => {
 //     $('.gameboard').click(function () {
@@ -188,3 +188,25 @@ module.exports = {
 //     user = 'o';
 //   }
 // }
+
+// // inserts token into array.
+// const setToken = function (index) {
+//   if ((count % 2 === 0) && (gameBoard[index] === '')) {
+//     gameBoard[index] = 'x';
+//     count++;
+//     user = 'o';
+//   } else if ((count % 2 !== 0) && (gameBoard[index] === '')) {
+//     gameBoard[index] = 'o';
+//     count++;
+//     user = 'x';
+//   } else {
+//     console.log('already taken');
+//   }
+//
+//   checkWinner();
+// };
+
+// $('.gameboard').on('click', function () {
+//   $(this).closest('.circle').append(user);
+//   $(this).click(false);
+// });
