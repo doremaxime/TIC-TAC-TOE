@@ -23,6 +23,7 @@ function restart() {
 
 // this function is for use in the checkWinner function.
 function checkEachIndex() {
+
   // check all gameBoard indexes are not empty.
   if ((gameBoard[0], gameBoard[1], gameBoard[2], gameBoard[3], gameBoard[4],
       gameBoard[5], gameBoard[6], gameBoard[7], gameBoard[8]) !== '') {
@@ -74,8 +75,11 @@ const upDateBoards = function (event) {
 
   //adds the user token to the id only if it is empty.
   if ($(event.target.id).text() === '') {
-    $(event.target.id).text(user);
+    $(this).append(user);
+    $(this).off();
+
     gameBoard[parseInt(event.target.id)] = user;
+    console.log('3');
     console.log(gameBoard);
     checkWinner();
     switchUser();
