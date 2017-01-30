@@ -25,10 +25,17 @@ const onPostSuccess = function () {
   console.log('User was successfully added.');
 };
 
+const showGamesSuccess = (data) => {
+  $('#signInModal').modal('hide');
+  $('.show-game-info').show();
+  $('.show-game-info').text(data);
+};
+
 module.exports = {
   onSuccess,
   onError,
   onDeleteSuccess,
   onPatchSuccess,
   onPostSuccess,
+  showGamesSuccess,
 };

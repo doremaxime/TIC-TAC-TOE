@@ -57,8 +57,6 @@ const onSignOut = function (event) {
     ;
 };
 
-
-
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
@@ -82,7 +80,6 @@ module.exports = {
   onSignIn,
   onSignOut,
   addHandlers,
-  onShowGames,
 
   // onCreateGames,
 };

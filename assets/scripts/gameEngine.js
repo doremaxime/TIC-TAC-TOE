@@ -55,6 +55,7 @@ const upDateBoards = function (event) {
   //adds the user token to the id only if it is empty.
   if ($(event.target.id).text() === '') {
     $(this).text(user);
+
     //$(this).off();
     gameBoard[parseInt(event.target.id)] = user;
     console.log(gameBoard);
@@ -81,6 +82,7 @@ function restart() {
 
   //$('.circle').on('click');
   $('.circle').text('');
+
   // $('.message').hide();
   $('.message').text('');
   $('.message').show();
