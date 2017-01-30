@@ -27,6 +27,9 @@ A user should:
   •	want to play again.
 
 Development:
-  Spend first 2.5 days on game logic for node. HUGE TIME WASTE
-  1.5 day on jquery - should practice more
-  1.5 day on APIs - read more on this!
+  Spend about the first 2.5 days on game logic for node. HUGE TIME WASTE.
+    Had to start the game logic 3 times because I didn't undersand what was wanted.
+  Spent about 1.5 day on DOM manipulation.
+    Most of the bugs were realting to JQuery even though I did try.jquery a lot.
+  spent about 1.5 day on APIs. The logins were easy but the game API was much tougher.
+  Learnt more with this project than class.

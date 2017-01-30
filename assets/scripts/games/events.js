@@ -72,10 +72,9 @@ const onCreateGame = function (event) {
   api.create(data)
   .then((response) => {
     store.game = response.game;
-    return store.user;
   })
-    .then(ui.onPostSuccess) // double check?
-    .catch(ui.failure);
+    .then(ui.onPostSuccess)
+    .catch(ui.onError);
 };
 
 const onUpdateGame = function () {

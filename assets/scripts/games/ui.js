@@ -24,8 +24,14 @@ const onPatchSuccess = function (data) {
 const onGetSuccess = function (data) {
   if (data.game) {
     console.log(data.game);
-    $('#show-game-info').text(data.game);
-    $('.show-game-info').show();
+    $('#show-game-info').text(data.game.cells);
+  }
+};
+
+const onIndexSuccess = function (data) {
+  if (data.game) {
+    console.log(data.game);
+    $('#show-game-info').text(data.game.cells);
   }
 };
 
