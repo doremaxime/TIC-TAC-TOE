@@ -9,8 +9,9 @@ const failure = (error) => {
 };
 
 const showGamesSuccess = (data) => {
-  $('.showInfo').show();
-  $('.showInfo').text(data.games);
+  $('#signInModal').modal('hide');
+  $('.show-game-info').show();
+  $('.show-game-info').text(data);
 };
 
 module.exports = {

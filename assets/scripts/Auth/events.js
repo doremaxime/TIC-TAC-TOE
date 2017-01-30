@@ -26,11 +26,8 @@ const onSignIn = function (event) {
     store.user = response.user;
     return store.user;
   })
-    .then(ui.success)
-    .then(() => {
-    console.log(store);
-  })
     .then(ui.signInSuccess)
+    .then(ui.showGamesSuccess)
     .catch(ui.signInFailure);
 };
 
