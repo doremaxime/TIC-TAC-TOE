@@ -5,6 +5,7 @@ const api = require('./api');
 const ui = require('./ui');
 const store = require('../store');
 const gameEngine = require('../gameEngine');
+const games = require('../games/events.js');
 
 const onSignUp = function (event) {
   event.preventDefault();
@@ -26,7 +27,7 @@ const onSignIn = function (event) {
     store.user = response.user;
     return store.user;
   })
-    .then(ui.signInSuccess)
+    .then(ui.success)
     .then(ui.showGamesSuccess)
     .catch(ui.signInFailure);
 };
@@ -37,6 +38,7 @@ const onChangePassword = function (event) {
   let data = getFormFields(event.target);
 
   api.changePassword(data)
+    .then(ui.success)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
     ;
@@ -50,37 +52,20 @@ const onSignOut = function (event) {
       delete store.user;
       return store;
     })
-    .then(ui.signOutSuccess)
+    .then(ui.success)
     .catch(ui.signOutSuccess)
     ;
 };
 
-// const onCreateGames = function (event) {
-//   event.preventDefault();
-//
-//   let data = getFormFields(event.target);
-//
-//   api.createGames(data)
-//     .then(ui.success)
-//     .catch(ui.failure);
-// };
 
-const onShowGames = function (event) {
-  event.preventDefault();
-
-  let data = getFormFields(event.target);
-
-  api.showGames(data)
-    .then(ui.showGamesSuccess)
-    .catch(ui.showGamesFailure);
-};
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
-  $('.show-game-info').on('submit', onShowGames);
+  $('.show-game-info').on('submit', games.onShowGames);
+  $('.restart').on('click', gameEngine.restart);
   $('#0').on('click', gameEngine.upDateBoards);
   $('#1').on('click', gameEngine.upDateBoards);
   $('#2').on('click', gameEngine.upDateBoards);
@@ -90,8 +75,6 @@ const addHandlers = () => {
   $('#6').on('click', gameEngine.upDateBoards);
   $('#7').on('click', gameEngine.upDateBoards);
   $('#8').on('click', gameEngine.upDateBoards);
-  $('.restart').on('click', gameEngine.restart);
-//  $('.showInfo').on('click', gameEngine.showInfo); //gameEngine?!
 };
 
 module.exports = {
