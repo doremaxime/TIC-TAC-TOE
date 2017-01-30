@@ -33,3 +33,6 @@ Development:
     Most of the bugs were realting to JQuery even though I did try.jquery a lot.
   spent about 1.5 day on APIs. The logins were easy but the game API was much tougher.
   Learnt more with this project than class.
+
+  Bugs:
+    Need to fix game API. Not showing user stats.
