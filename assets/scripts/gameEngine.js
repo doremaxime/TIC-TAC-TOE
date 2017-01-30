@@ -8,6 +8,9 @@ let gameBoard = ['', '', '', '', '', '', '', '', ''];
 let count = 0;
 let user = 'x';
 
+// need to know when the game is over for APIs!
+let isGameOver = false;
+
 // this function is for use in the checkWinner function to see if all indexes are not empty.
 function checkEachIndex() {
   return gameBoard.every((e) => e !== '');
@@ -24,6 +27,7 @@ function checkWinner() {
       (gameBoard[0] === 'x' && gameBoard[4] === 'x' && gameBoard[8] === 'x') ||
       (gameBoard[2] === 'x' && gameBoard[4] === 'x' && gameBoard[6] === 'x')) {
     $('.message').text('X won!');
+    isGameOver = true;
   } else if ((gameBoard[0] === 'o' && gameBoard[1] === 'o' && gameBoard[2] === 'o') ||
              (gameBoard[3] === 'o' && gameBoard[4] === 'o' && gameBoard[5] === 'o') ||
              (gameBoard[6] === 'o' && gameBoard[7] === 'o' && gameBoard[8] === 'o') ||
@@ -33,10 +37,12 @@ function checkWinner() {
              (gameBoard[0] === 'o' && gameBoard[4] === 'o' && gameBoard[8] === 'o') ||
              (gameBoard[2] === 'o' && gameBoard[4] === 'o' && gameBoard[6] === 'o')) {
     $('.message').text('O won!');
+    isGameOver = true;
   } else if (checkEachIndex() === true) {
     console.log('tie');
     $('.message').text("It's a tie");
-    return;
+    isGameOver = true;
+    //return;    do i need that?
   }
 }
 
@@ -69,7 +75,7 @@ const upDateBoards = function (event) {
 
 // when reset, all array indexes are back to '' (empty).
 function restart() {
-
+  isGameOver = false;
   // $('#0').on();
   // $('#1').on();
   // $('#2').on();

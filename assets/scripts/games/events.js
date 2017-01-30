@@ -25,7 +25,6 @@ const onGetUsers = function (event) {
       .then(ui.onSuccess)
       .catch(ui.onError);
   }
-
 };
 
 const onDeleteUser = function(event){
@@ -88,7 +87,6 @@ const onGetGames = function (event) {
     .then(ui.showGamesSuccess)
     .catch(ui.showGamesFailure);
 };
-
 
 module.exports = {
   onGetUsers,

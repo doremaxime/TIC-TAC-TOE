@@ -29,10 +29,9 @@ const onGetSuccess = function (data) {
   }
 };
 
-const onPostSuccess = function () {
-console.log(data);
+const onPostSuccess = function (data) {
+  console.log(data);
 };
-
 
 module.exports = {
   onSuccess,
