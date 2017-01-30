@@ -2,10 +2,10 @@
 
 const onSuccess = function (data) {
 //  debugger;
-  if (data.user) {
-    console.log(data.user);
+  if (data.game) {
+    console.log(data.game);
   } else {
-    console.table(data.users);
+    console.table(data.games);
   }
 };
 
@@ -17,19 +17,22 @@ const onDeleteSuccess = function () {
   console.log('User was successfully signed out.');
 };
 
-const onPatchSuccess = function () {
-  console.log('User was successfully edited.');
+const onPatchSuccess = function (data) {
+  console.log(data.game);
+};
+
+const onGetSuccess = function (data) {
+  if (data.game) {
+    console.log(data.game);
+    $('#show-game-info').text(data.game);
+    $('.show-game-info').show();
+  }
 };
 
 const onPostSuccess = function () {
-  console.log('User was successfully added.');
+console.log(data);
 };
 
-const showGamesSuccess = (data) => {
-  $('#signInModal').modal('hide');
-  $('.show-game-info').show();
-  $('.show-game-info').text(data);
-};
 
 module.exports = {
   onSuccess,
@@ -37,5 +40,5 @@ module.exports = {
   onDeleteSuccess,
   onPatchSuccess,
   onPostSuccess,
-  showGamesSuccess,
+  onGetSuccess,
 };

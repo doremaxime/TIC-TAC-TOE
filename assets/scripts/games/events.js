@@ -4,7 +4,6 @@ const api = require('./api.js');
 const ui = require('./ui.js');
 const store = require('../store.js');
 
-
 const getFormFields = require('../../../lib/get-form-fields');
 
 // get in the habit of naming your handlers, it eases debugging.
@@ -12,6 +11,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 // also, follow a convention for handlers. here, I name my handler
 // beginning with 'on' to denote that it is done when the GET /books
 // button is clicked
+
 const onGetUsers = function (event) {
   event.preventDefault();
   let userId = $('#user-id').val();
@@ -65,21 +65,21 @@ const onPostUser = function(event){
     .catch(ui.onError);
 };
 
-const onCreateGames = function (event) {
+const onCreateGame = function (event) {
   event.preventDefault();
 
   let data = getFormFields(event.target);
 
-  api.createGames(data)
+  api.create(data)
   .then((response) => {
-    store.user = response.user;
+    store.game = response.game;
     return store.user;
   })
-    .then(ui.success)
+    .then(ui.onPostSuccess) // double check?
     .catch(ui.failure);
 };
 
-const onShowGames = function (event) {
+const onGetGames = function (event) {
   event.preventDefault();
 
   let data = getFormFields(event.target);
@@ -95,6 +95,6 @@ module.exports = {
   onDeleteUser,
   onPatchUser,
   onPostUser,
-  onCreateGames,
-  onShowGames
+  onCreateGame,
+  onGetGames,
 };

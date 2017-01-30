@@ -2,14 +2,27 @@
 
 const config = require('../config.js');
 const store = require('../store.js');
+const game = require('../example');
 
-const index = function (id) {
+
+const index = function () {
   return $.ajax({
-  url: config.apiOrigin + '/games' + id,
+  url: config.apiOrigin + '/games',
   method: 'GET',
   headers: {
     Authorization: `Token token=${store.user.token}`,
     },
+  });
+};
+
+const create = function (data) {
+  return $.ajax({
+  url: config.apiOrigin + '/games',
+  method: 'POST',
+  headers: {
+    Authorization: `Token token=${store.user.token}`,
+    },
+    data,
   });
 };
 
@@ -33,21 +46,10 @@ const destroy = function(id){
   });
 };
 
-const patch = function(id, data){
+const update = function(id, user, data){ //need more here?
   return $.ajax({
   url: config.apiOrigin + '/games/' + id,
   method: 'PATCH',
-  headers: {
-    Authorization: `Token token=${store.user.token}`,
-    },
-    data,
-  });
-};
-
-const post = function(data){
-  return $.ajax({
-  url: config.apiOrigin + '/games/',
-  method: 'POST',
   headers: {
     Authorization: `Token token=${store.user.token}`,
     },
@@ -59,6 +61,6 @@ module.exports = {
   index,
   show,
   destroy,
-  patch,
-  post,
+  update,
+  create,
 };
