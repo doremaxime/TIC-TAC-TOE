@@ -4,49 +4,38 @@ const config = require('../config.js');
 const store = require('../store.js');
 const game = require('../example');
 
+const show = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
 
 const index = function () {
   return $.ajax({
-  url: config.apiOrigin + '/games',
-  method: 'GET',
-  headers: {
-    Authorization: `Token token=${store.user.token}`,
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
     },
   });
 };
 
 const create = function (data) {
   return $.ajax({
-  url: config.apiOrigin + '/games',
-  method: 'POST',
-  headers: {
-    Authorization: `Token token=${store.user.token}`,
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
     },
     data,
   });
 };
 
-const show = function (id) {
-  return $.ajax({
-  url: config.apiOrigin + '/games/' + id,
-  method: 'GET',
-  headers: {
-    Authorization: `Token token=${store.user.token}`,
-    },
-  });
-};
-
-const destroy = function(id){
-  return $.ajax({
-  url: config.apiOrigin + '/games/' + id,
-  method: 'DELETE',
-  headers: {
-    Authorization: `Token token=${store.user.token}`,
-    },
-  });
-};
-
-const update = function (id, gameIndex, user, isGameOver) {
+const update = function (id, gameIndex, player, gameOver) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + id,
     method: 'PATCH',
@@ -57,20 +46,18 @@ const update = function (id, gameIndex, user, isGameOver) {
       game: {
         cell: {
           index: gameIndex,
-          value: user,
+          value: player,
         },
-        over: isGameOver,
+        over: gameOver,
       },
     },
   });
 };
 
-
-
 module.exports = {
-  index,
   show,
-  destroy,
-  update,
+  index,
+  game,
   create,
+  update,
 };

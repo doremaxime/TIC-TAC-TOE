@@ -9,7 +9,7 @@ let count = 0;
 let user = 'x';
 
 // need to know when the game is over for APIs!
-let isGameOver = false;
+let gameOver = false;
 
 // this function is for use in the checkWinner function to see if all indexes are not empty.
 function checkEachIndex() {
@@ -27,7 +27,7 @@ function checkWinner() {
       (gameBoard[0] === 'x' && gameBoard[4] === 'x' && gameBoard[8] === 'x') ||
       (gameBoard[2] === 'x' && gameBoard[4] === 'x' && gameBoard[6] === 'x')) {
     $('.message').text('X won!');
-    isGameOver = true;
+    gameOver = true;
     $('.circle').hide();
   } else if ((gameBoard[0] === 'o' && gameBoard[1] === 'o' && gameBoard[2] === 'o') ||
              (gameBoard[3] === 'o' && gameBoard[4] === 'o' && gameBoard[5] === 'o') ||
@@ -38,10 +38,10 @@ function checkWinner() {
              (gameBoard[0] === 'o' && gameBoard[4] === 'o' && gameBoard[8] === 'o') ||
              (gameBoard[2] === 'o' && gameBoard[4] === 'o' && gameBoard[6] === 'o')) {
     $('.message').text('O won!');
-    isGameOver = true;
+    gameOver = true;
   } else if (checkEachIndex() === true) {
     $('.message').text("It's a tie");
-    isGameOver = true;
+    gameOver = true;
     //return;    do i need that?
   }
 }
@@ -84,12 +84,12 @@ function restart() {
   gameBoard = ['', '', '', '', '', '', '', '', ''];
   user = 'x';
   count = 0;
-  isGameOver = false;
+  gameOver = false;
 }
 
 module.exports = {
   upDateBoards,
   restart,
-  isGameOver,
+  gameOver,
   user,
 };

@@ -1,26 +1,5 @@
 'use strict';
 
-const onSuccess = function (data) {
-//  debugger;
-  if (data.game) {
-    console.log(data.game);
-  } else {
-    console.table(data.games);
-  }
-};
-
-const onError = function (response) {
-  console.error(response);
-};
-
-const onDeleteSuccess = function () {
-  console.log('User was successfully signed out.');
-};
-
-const onPatchSuccess = function (data) {
-  console.log(data.game);
-};
-
 const onGetSuccess = function (data) {
   if (data.game) {
     console.log(data.game);
@@ -29,21 +8,40 @@ const onGetSuccess = function (data) {
 };
 
 const onIndexSuccess = function (data) {
-  if (data.game) {
-    console.log(data.game);
-    $('#show-game-info').text(data.game.cells);
+  if (data.games) {
+    console.log(data.games);
+    for (let i = 0; i < data.games.length; i++) {
+      $('#show-game-info').text(data.games);
+    }
   }
+};
+
+
+const onError = function (response) {
+  console.error(response);
 };
 
 const onPostSuccess = function (data) {
   console.log(data);
 };
 
+const onPatchSuccess = function (data) {
+  console.log(data.game);
+};
+
+const onSuccess = function (data) {
+  if (data.game) {
+    console.log(data.game);
+  } else {
+    console.log(data.games);
+  }
+};
+
 module.exports = {
-  onSuccess,
-  onError,
-  onDeleteSuccess,
-  onPatchSuccess,
-  onPostSuccess,
   onGetSuccess,
+  onIndexSuccess,
+  onError,
+  onPostSuccess,
+  onPatchSuccess,
+  onSuccess,
 };
