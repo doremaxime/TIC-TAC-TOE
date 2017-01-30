@@ -24,14 +24,14 @@ const index = function () {
   });
 };
 
-const create = function (data) {
+const create = function (data) { //data?
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
     headers: {
       Authorization: `Token token=${store.user.token}`,
     },
-    data,
+    data,  // data??
   });
 };
 
@@ -57,7 +57,6 @@ const update = function (id, gameIndex, player, gameOver) {
 module.exports = {
   show,
   index,
-  game,
   create,
   update,
 };

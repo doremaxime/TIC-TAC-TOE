@@ -2,18 +2,14 @@
 
 const onGetSuccess = function (data) {
   if (data.game) {
-    console.log(data.game);
-    $('#show-game-info').text(data.game.cells);
+    console.log(data.game.cells);
+    $('#show-total-games').text('You have played ' + gameStore.games.length + ' games.');
   }
 };
 
 const onIndexSuccess = function (data) {
-  if (data.games) {
     console.log(data.games);
-    for (let i = 0; i < data.games.length; i++) {
-      $('#show-game-info').text(data.games);
-    }
-  }
+    $('#show-total-games').text('You have played ' + gameStore.games.length + ' games.');
 };
 
 
@@ -21,11 +17,13 @@ const onError = function (response) {
   console.error(response);
 };
 
-const onPostSuccess = function (data) {
+const onCreateSuccess = function (data) {
   console.log(data);
 };
 
 const onPatchSuccess = function (data) {
+  console.log(data.game.cells);
+  console.log(data.game.cell);
   console.log(data.game);
 };
 
@@ -41,7 +39,7 @@ module.exports = {
   onGetSuccess,
   onIndexSuccess,
   onError,
-  onPostSuccess,
+  onCreateSuccess,
   onPatchSuccess,
   onSuccess,
 };
