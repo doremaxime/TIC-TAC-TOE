@@ -46,16 +46,26 @@ const destroy = function(id){
   });
 };
 
-const update = function(id, user, data){ //need more here?
+const update = function (id, gameIndex, user, isGameOver) {
   return $.ajax({
-  url: config.apiOrigin + '/games/' + id,
-  method: 'PATCH',
-  headers: {
-    Authorization: `Token token=${store.user.token}`,
+    url: config.apiOrigin + '/games/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
     },
-    data,
+    data: {
+      game: {
+        cell: {
+          index: gameIndex,
+          value: user,
+        },
+        over: isGameOver,
+      },
+    },
   });
 };
+
+
 
 module.exports = {
   index,

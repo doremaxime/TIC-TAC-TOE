@@ -28,6 +28,7 @@ function checkWinner() {
       (gameBoard[2] === 'x' && gameBoard[4] === 'x' && gameBoard[6] === 'x')) {
     $('.message').text('X won!');
     isGameOver = true;
+    $('.circle').hide();
   } else if ((gameBoard[0] === 'o' && gameBoard[1] === 'o' && gameBoard[2] === 'o') ||
              (gameBoard[3] === 'o' && gameBoard[4] === 'o' && gameBoard[5] === 'o') ||
              (gameBoard[6] === 'o' && gameBoard[7] === 'o' && gameBoard[8] === 'o') ||
@@ -39,7 +40,6 @@ function checkWinner() {
     $('.message').text('O won!');
     isGameOver = true;
   } else if (checkEachIndex() === true) {
-    console.log('tie');
     $('.message').text("It's a tie");
     isGameOver = true;
     //return;    do i need that?
@@ -59,46 +59,37 @@ let switchUser = function () {
 const upDateBoards = function (event) {
 
   //adds the user token to the id only if it is empty.
-  if ($(event.target.id).text() === '') {
-    $(this).text(user);
-
-    //$(this).off();
+  if ($(event.target.id).text() === ('')) {
+    $(this).append(user);
     gameBoard[parseInt(event.target.id)] = user;
-    console.log(gameBoard);
+    checkWinner();
+    switchUser();
+  } else if (($(event.target.id).text() === ('')) && ($(event.target.id).text() !== user)) {
+    $(this).append(user);
+    gameBoard[parseInt(event.target.id)] = user;
     checkWinner();
     switchUser();
   } else {
-    console.log('already taken');
     $('.message').text('already taken');
   }
 };
 
 // when reset, all array indexes are back to '' (empty).
 function restart() {
-  isGameOver = false;
-  // $('#0').on();
-  // $('#1').on();
-  // $('#2').on();
-  // $('#3').on();
-  // $('#4').on();
-  // $('#5').on();
-  // $('#6').on();
-  // $('#7').on();
-  // $('#8').on();
-
-  //$('.circle').on('click');
+  //need to reactivate the clicks!
   $('.circle').text('');
-
-  // $('.message').hide();
+  $('.circle').show();
   $('.message').text('');
   $('.message').show();
   gameBoard = ['', '', '', '', '', '', '', '', ''];
   user = 'x';
   count = 0;
-
+  isGameOver = false;
 }
 
 module.exports = {
   upDateBoards,
   restart,
+  isGameOver,
+  user,
 };

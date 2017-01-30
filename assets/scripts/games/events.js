@@ -3,6 +3,7 @@
 const api = require('./api.js');
 const ui = require('./ui.js');
 const store = require('../store.js');
+const gameEngine = require('../gameEngine');
 
 const getFormFields = require('../../../lib/get-form-fields');
 
@@ -12,34 +13,33 @@ const getFormFields = require('../../../lib/get-form-fields');
 // beginning with 'on' to denote that it is done when the GET /books
 // button is clicked
 
-const onGetUsers = function (event) {
-  event.preventDefault();
-  let userId = $('#user-id').val();
-
-  if (userId.length === 0){
-      api.index()
-      .then(ui.onSuccess)
-      .catch(ui.onError);
-  } else {
-    api.show(userId)
-      .then(ui.onSuccess)
-      .catch(ui.onError);
-  }
-};
-
-const onDeleteUser = function(event){
+const onDeleteGame = function(event){
   event.preventDefault();
   // let bookId = $('#delete-book-id').val();
   // multiple ways to do everything.
   // However prefer this way.
 
   let data = getFormFields (event.target);
-  api.destroy(data.user.id, data)
+  api.destroy(data.game.id, data)
     .then(ui.onDeleteSuccess)
     .catch(ui.onError);
 };
 
-const onPatchUser = function (event) {
+const onGetGames = function (event) {
+  event.preventDefault();
+  let gameId = $('#game-id').val();
+  if (gameId.length === 0){
+      api.index()
+      .then(ui.onSuccess)
+      .catch(ui.onError);
+  } else {
+    api.show(gameId)
+      .then(ui.onSuccess)
+      .catch(ui.onError);
+  }
+};
+
+const onPatchGame = function (event) {
   event.preventDefault();
   // let bookId = $('#delete-book-id').val();
   // multiple ways to do everything.
@@ -47,12 +47,12 @@ const onPatchUser = function (event) {
 
   let data = getFormFields(event.target);
   console.log(data);
-    api.patch(data.user.id, data)
+    api.patch(data.game.id, data)
     .then(ui.onPatchSuccess)
     .catch(ui.onError);
 };
 
-const onPostUser = function(event){
+const onPostGame = function(event){
   event.preventDefault();
   // let bookId = $('#delete-book-id').val();
   // multiple ways to do everything.
@@ -78,21 +78,17 @@ const onCreateGame = function (event) {
     .catch(ui.failure);
 };
 
-const onGetGames = function (event) {
-  event.preventDefault();
-
-  let data = getFormFields(event.target);
-
-  api.showGames(data)
-    .then(ui.showGamesSuccess)
-    .catch(ui.showGamesFailure);
+const onUpdateGame = function () {
+  api.update(store.game.id, event.target.id, gameEngine.user, gameEngine.isGameOver)
+    .then(ui.onPatchSuccess)
+    .catch(ui.onError)
+    ;
 };
 
 module.exports = {
-  onGetUsers,
-  onDeleteUser,
-  onPatchUser,
-  onPostUser,
-  onCreateGame,
   onGetGames,
+  onDeleteGame,
+  onPatchGame,
+  onCreateGame,
+  onUpdateGame,
 };
