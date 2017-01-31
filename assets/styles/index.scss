@@ -103,8 +103,28 @@ h1 {
   width: 100%;
 }
 
-.show-game-info {
+.api-message {
+  clear: both;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  width: 100%;
+}
 
+.show-game-info {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 30px;
+  font-weight: bold;
+  height: 50px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.total-games {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 20px;
+  height: 30px;
+  text-align: center;
 }
 
 footer {

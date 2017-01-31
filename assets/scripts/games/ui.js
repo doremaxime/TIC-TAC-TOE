@@ -1,45 +1,26 @@
 'use strict';
 
-const onGetSuccess = function (data) {
-  if (data.game) {
-    console.log(data.game.cells);
-    $('#show-total-games').text('You have played ' + gameStore.games.length + ' games.');
-  }
+const success = () => {
+  $('#api-message').text('task done');
 };
 
-const onIndexSuccess = function (data) {
-    console.log(data.games);
-    $('#show-total-games').text('You have played ' + gameStore.games.length + ' games.');
+const failure = () => {
+  $('#api-message').text('Error');
 };
 
-
-const onError = function (response) {
-  console.error(response);
-};
-
-const onCreateSuccess = function (data) {
-  console.log(data);
-};
-
-const onPatchSuccess = function (data) {
-  console.log(data.game.cells);
-  console.log(data.game.cell);
+const createSuccess = (data) => {
+  $('#api-message').text('New Game Created');
   console.log(data.game);
+  $('.show-game-info').text(data.game.cells);
 };
 
-const onSuccess = function (data) {
-  if (data.game) {
-    console.log(data.game);
-  } else {
-    console.log(data.games);
-  }
+const onPatchSuccess = () => {
+  $('#api-message').text('Game updated');
 };
 
 module.exports = {
-  onGetSuccess,
-  onIndexSuccess,
-  onError,
-  onCreateSuccess,
+  success,
+  failure,
+  createSuccess,
   onPatchSuccess,
-  onSuccess,
 };

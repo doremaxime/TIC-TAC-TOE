@@ -1,55 +1,59 @@
 'use strict';
 
-const api = require('./api.js');
-const ui = require('./ui.js');
+const api = require('./api');
 const store = require('../store');
+const ui = require('./ui');
 
-const getFormFields = require('../../../lib/get-form-fields');
 
-const onGetGames = function (event) {
+// These 4 functions activate the web requests in the api file
+const onGetIndex = function (event) {
   event.preventDefault();
-  let data = getFormFields(event.target);
-
-  if (data.game.id.length === 0) {    // check
-    api.index()
-    .then(ui.onIndexSuccess)
-    .catch(ui.onError);
-  } else {
-    api.show(data.game.id)
-    .then(ui.onGetSuccess)
-    .catch(ui.onError);
-  }
+  api.getIndex()
+    .then(ui.success)
+    .catch(ui.failure);
 };
 
 const onCreateGame = function (event) {
+  console.log('log: created game');
   event.preventDefault();
-
-  let data = getFormFields(event.target);
-  api.create(data)
+  api.create()
     .then((response) => {
       store.game = response.game;
       return store.game;
     })
-    .then(ui.onCreateSuccess)
-    .catch(ui.onError);
+    .then(ui.createSuccess)
+    .catch(ui.failure);
 };
 
-const onUpdateGame = function () {  // don't we pass a whole bunch of stuff here
+const onGetShow = function (event) {
   event.preventDefault();
+  let id = parseInt($('#game-id').val());  ///
+  api.show(id)
+    .then(ui.success)
+    .catch(ui.failure);
+};
 
-  api.update(store.game.id, event.target.id, player, gameOver)
-    .then(ui.onPatchSuccess)
-    .catch(ui.onError)
-    ;
+const totalGames = function (event) {
+  console.log('log: total games');
+  event.preventDefault();
+  api.getIndex()
+    .then((response) => {
+      store.games = response.games;
+      $('.total-games').text('Game #' + store.games.length);
+      return store.games.length;
+    })
+    .then(ui.success)
+    .catch(ui.failure);
 };
 
 const addHandlers = () => {
-  $('#show-game-info').on('submit', onGetGames);
+  $('.total-games').on('click', totalGames);
+  $('.restart').on('click', onCreateGame);
 };
 
 module.exports = {
-  onGetGames,
-  onCreateGame,
-  onUpdateGame,
   addHandlers,
+  onCreateGame,
+  onGetIndex,
+  onGetShow,
 };

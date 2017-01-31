@@ -96,7 +96,6 @@
       <!-- End of API Token Auth -->
 
     <h1>Tic-Tac-Max</h1>
-    <button type="button" class="btn btn-primary create-board-button hidden">Play New Game</button>
 
     <div class="gameboard">
         <div class="circle" id="0">
@@ -120,25 +119,15 @@
       </div>
 
     <div class="score">Score</div>
-    <!--<div class="player-1">X:</div>
-    <div class="player-2">:O</div> -->
+
     <div class="message"></div>
 
-
-    <!-- http://stackoverflow.com/questions/7755088/what-does-href-expression-a-href-javascript-a-do -->
     <button class="restart">Restart</button>
 
-    <div class="show-game-info">Show Info</div>
-    <button type="button" class="btn btn-primary hidden" id="total-games-played">How many games have I played?</button>
-    <div class= "show-total-games hidden" id="show-total-games"></div>
+    <button type="button" class="total-games" id="total-games">games played</button>
+    <div class= "show-game-info" id="show-game-info"></div>
 
-
-    <!-- code from update patch-->
-    <form>
-      <input name="game[cell][index]" type="text" value="0">
-      <input name="game[cell][value]" type="text" value="x">
-      <input name="game[over]" type="text" value="false">
-    </form>
+    <div class="api-message" id="api-message"></div>
 
     <footer>© 2017</footer>
   </body>

@@ -7,8 +7,9 @@ let gameBoard = ['', '', '', '', '', '', '', '', ''];
 
 let count = 0;
 let user = 'x';
-
-// need to know when the game is over for APIs!
+let xWins = false;
+let oWins = false;
+let noneWins = false;
 let gameOver = false;
 
 // this function is for use in the checkWinner function to see if all indexes are not empty.
@@ -28,6 +29,7 @@ function checkWinner() {
       (gameBoard[2] === 'x' && gameBoard[4] === 'x' && gameBoard[6] === 'x')) {
     $('.message').text('X won!');
     gameOver = true;
+    xWins = true;
     $('.circle').hide();
   } else if ((gameBoard[0] === 'o' && gameBoard[1] === 'o' && gameBoard[2] === 'o') ||
              (gameBoard[3] === 'o' && gameBoard[4] === 'o' && gameBoard[5] === 'o') ||
@@ -39,9 +41,14 @@ function checkWinner() {
              (gameBoard[2] === 'o' && gameBoard[4] === 'o' && gameBoard[6] === 'o')) {
     $('.message').text('O won!');
     gameOver = true;
+    oWins = true;
+    $('.circle').hide();
   } else if (checkEachIndex() === true) {
     $('.message').text("It's a tie");
     gameOver = true;
+    noneWins = true;
+    $('.circle').hide();
+
     //return;    do i need that?
   }
 }
@@ -55,7 +62,7 @@ let switchUser = function () {
 };
 
 // the user clicks on an ID, and sets off a chain of events that
-// up-dates the gameBoard(logic) and gameboard(html tag)
+// updates the gameBoard(logic) and gameboard(html tag)
 const upDateBoards = function (event) {
 
   //adds the user token to the id only if it is empty.
@@ -74,9 +81,7 @@ const upDateBoards = function (event) {
   }
 };
 
-// when reset, all array indexes are back to '' (empty).
 function restart() {
-  //need to reactivate the clicks!
   $('.circle').text('');
   $('.circle').show();
   $('.message').text('');
@@ -84,6 +89,9 @@ function restart() {
   gameBoard = ['', '', '', '', '', '', '', '', ''];
   user = 'x';
   count = 0;
+  xWins = false;
+  oWins = false;
+  noneWins = false;
   gameOver = false;
 }
 

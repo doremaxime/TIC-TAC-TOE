@@ -1,8 +1,28 @@
 'use strict';
 
-const config = require('../config.js');
-const store = require('../store.js');
-const game = require('../example');
+const config = require('../config');
+const store = require('../store');
+
+const getIndex = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
+const create = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+    data,
+  });
+};
 
 const show = function (id) {
   return $.ajax({
@@ -14,30 +34,9 @@ const show = function (id) {
   });
 };
 
-const index = function () {
+const update = function (index, value) {
   return $.ajax({
-    url: config.apiOrigin + '/games',
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`,
-    },
-  });
-};
-
-const create = function (data) { //data?
-  return $.ajax({
-    url: config.apiOrigin + '/games',
-    method: 'POST',
-    headers: {
-      Authorization: `Token token=${store.user.token}`,
-    },
-    data,  // data??
-  });
-};
-
-const update = function (id, gameIndex, player, gameOver) {
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + id,
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`,
@@ -45,18 +44,33 @@ const update = function (id, gameIndex, player, gameOver) {
     data: {
       game: {
         cell: {
-          index: gameIndex,
-          value: player,
+          index: index,
+          value: value,
         },
-        over: gameOver,
       },
     },
   });
 };
 
+const updateGameStatus = function (over) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+    data: {
+        game: {
+          over: over,
+        },
+      },
+  });
+};
+
 module.exports = {
-  show,
-  index,
+  getIndex,
   create,
+  show,
   update,
+  updateGameStatus,
 };
