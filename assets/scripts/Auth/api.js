@@ -12,6 +12,8 @@ const signUp = function (data) {
 };
 
 const signIn = function (data) {
+  console.log('HIDING THE MODAL api');
+
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',

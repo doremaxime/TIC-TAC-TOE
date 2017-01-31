@@ -13,23 +13,24 @@ const onSignUp = function (event) {
   let data = getFormFields(event.target);
 
   api.signUp(data)
-  .then(ui.signUpSuccess)
-  .catch(ui.signUpFailure);
+  .then(ui.success)
+  .catch(ui.failure);
 };
 
 const onSignIn = function (event) {
   event.preventDefault();
+  console.log('HIDING THE MODAL');
 
   let data = getFormFields(event.target);
 
   api.signIn(data)
   .then((response) => {
     store.user = response.user;
+    console.log('HIDING THE MODAL 2');
     return store.user;
   })
     .then(ui.success)
-    .then(ui.showGamesSuccess)
-    .catch(ui.signInFailure);
+    .catch(ui.failure);
 };
 
 const onChangePassword = function (event) {
@@ -39,8 +40,7 @@ const onChangePassword = function (event) {
 
   api.changePassword(data)
     .then(ui.success)
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
+    .catch(ui.failure)
     ;
 };
 
@@ -53,7 +53,8 @@ const onSignOut = function (event) {
       return store;
     })
     .then(ui.success)
-    .catch(ui.signOutSuccess)
+    .then(ui.signOutSuccess)
+    .catch(ui.error)
     ;
 };
 
@@ -80,6 +81,4 @@ module.exports = {
   onSignIn,
   onSignOut,
   addHandlers,
-
-  // onCreateGames,
 };
