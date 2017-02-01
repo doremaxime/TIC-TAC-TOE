@@ -19,14 +19,12 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault();
-  console.log('HIDING THE MODAL');
 
   let data = getFormFields(event.target);
 
   api.signIn(data)
   .then((response) => {
     store.user = response.user;
-    console.log('HIDING THE MODAL 2');
     return store.user;
   })
     .then(ui.success)

@@ -12,8 +12,6 @@ const signUp = function (data) {
 };
 
 const signIn = function (data) {
-  console.log('HIDING THE MODAL api');
-
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
@@ -42,45 +40,9 @@ const signOut = function () {
   });
 };
 
-const createGames = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/games',
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`,
-    },
-    data,
-  });
-};
-
-const postGames = function () { //(data)
-  return $.ajax({
-    url: config.apiOrigin + '/games',
-    method: 'POST',
-    headers: {
-      Authorization: `Token token=${store.user.token}`,
-    },
-
-    //data,
-  });
-};
-
-const showGames = function () {
-  return $.ajax({
-    url: config.apiOrigin + '/games',
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`,
-    },
-  });
-};
-
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  createGames,
-  postGames,
-  showGames,
 };
