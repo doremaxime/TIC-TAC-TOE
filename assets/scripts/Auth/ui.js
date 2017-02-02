@@ -5,17 +5,14 @@
 // TODO: make .restart create a new game.
 
 const success = () => {
-  // console.log(response);
-  // $('#myModal').modal('hide');
 };
 
 const signInSuccess = (response) => {
   console.log(response);
   $('#myModal').modal('hide');
-  $('.gameboard').show();
-  // $('.restart').show();
-  // $('.total-games').show();
-  $('.message').hide();
+  $('.gameboard').css('visibility', 'visible');
+  $('.restart').css('visibility', 'visible');
+  $('.total-games').css('visibility', 'visible');
 };
 
 const failure = (error) => {
@@ -33,13 +30,11 @@ const signOutSuccess = (data) => {
   $('.gameboard').hide();
   $('.restart').hide();
   $('.show-game-info').hide();
-  $('.score').hide();
   $('.message').text('Thanks for playing!');
   $('.total-games').hide();
 };
 
 // <button type="button" class="total-games" id="total-games">games played</button>
-// <div class="api-message" id="api-message"></div>
 module.exports = {
   failure,
   success,

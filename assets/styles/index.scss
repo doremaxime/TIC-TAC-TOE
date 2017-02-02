@@ -40,15 +40,16 @@ h1 {
   clear: both;
   font-family: 'Bungee Shade', cursive;
   font-size: 60px;
+  margin-top: 80px;
   text-align: center;
 }
 
 .gameboard {
   background-color: $pink;
-  display: block;
   height: 510px;
   margin: 10px auto;
   position: relative;
+  visibility: hidden;
   width: 510px;
 }
 
@@ -63,37 +64,16 @@ h1 {
   margin-left: 15px;
   margin-top: 15px;
   text-align: center;
+  visibility: hidden;
   width: 150px;
 }
 
-.score {
-  font-family: 'Bungee Shade', cursive;
-  font-size: 60px;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-// .player-1 {
-//   float: left;
-//   font-family: 'Bungee Shade', cursive;
-//   font-size: 60px;
-//   margin-top: 10px;
-// }
-//
-// .player-2 {
-//   float: right;
-//   font-family: 'Bungee Shade', cursive;
-//   font-size: 60px;
-//   margin-bottom: 30px;
-//   margin-top: 10px;
-// }
-
 .restart {
-  clear: both;
   font-family: 'Bungee Shade', cursive;
   font-size: 30px;
   text-align: center;
-  width: 100%;
+  visibility: hidden;
+  width: 275px;
 }
 
 .message {
@@ -103,28 +83,12 @@ h1 {
   width: 100%;
 }
 
-.api-message {
-  clear: both;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 15px;
-  text-align: center;
-  width: 100%;
-}
-
-.show-game-info {
-  font-family: 'Bungee Shade', cursive;
-  font-size: 30px;
-  font-weight: bold;
-  height: 50px;
-  margin-top: 15px;
-  text-align: center;
-}
-
 .total-games {
   font-family: 'Bungee Shade', cursive;
-  font-size: 20px;
-  height: 30px;
+  font-size: 23px;
   text-align: center;
+  visibility: hidden;
+  width: 260px;
 }
 
 footer {
@@ -167,27 +131,6 @@ footer {
     margin-top: 20px;
     width: 85px;
   }
-
-  .score {
-    font-family: 'Bungee Shade', cursive;
-    font-size: 30px;
-    margin-bottom: 0;
-    text-align: center;
-  }
-
-  // .player-1 {
-  //   float: left;
-  //   font-family: 'Bungee Shade', cursive;
-  //   font-size: 30px;
-  //   margin-top: 10px;
-  // }
-  //
-  // .player-2 {
-  //   float: right;
-  //   font-family: 'Bungee Shade', cursive;
-  //   font-size: 30px;
-  //   margin-top: 10px;
-  // }
 
   .restart {
     font-family: 'Bungee Shade', cursive;
