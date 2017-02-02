@@ -27,7 +27,7 @@ const onSignIn = function (event) {
     store.user = response.user;
     return store.user;
   })
-    .then(ui.success)
+    .then(ui.signInSuccess)
     .catch(ui.failure);
 };
 
@@ -37,7 +37,7 @@ const onChangePassword = function (event) {
   let data = getFormFields(event.target);
 
   api.changePassword(data)
-    .then(ui.success)
+    .then(ui.changePasswordSuccess)
     .catch(ui.failure)
     ;
 };
@@ -50,7 +50,6 @@ const onSignOut = function (event) {
       delete store.user;
       return store;
     })
-    .then(ui.success)
     .then(ui.signOutSuccess)
     .catch(ui.error)
     ;

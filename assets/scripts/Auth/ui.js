@@ -1,44 +1,49 @@
 'use strict';
 
-// TODO: Hide modal when successful signing in, sign out, and the password was corretcly changed.
+// TODO: Hide modal when successful sign out and the password was corretcly changed.
 // TODO: Show total-games when signing in. hide it when signing out.
 // TODO: make .restart create a new game.
 
-const success = (response) => {
-  //console.log(data);
-  //   store.user = response.user;
-  //   console.log('HIDING THE MODAL 2');
-  //   return store.user;
-  // })
+const success = () => {
+  // console.log(response);
+  // $('#myModal').modal('hide');
+};
+
+const signInSuccess = (response) => {
   console.log(response);
-  console.log('HIDING THE MODAL sign in ui success');
-  // $('#myModalLabel').modal('hide'); //trying to get the modal to hide.
-  // $('.myModalLabel').modal('hide'); //trying to get the modal to hide.
-  // $('.modal-dialog').modal('hide'); //trying to get the modal to hide.
-  // $('.modal-content').modal('hide'); //trying to get the modal to hide.
-  $('#myModal').modal('hide'); //trying to get the modal to hide.
-  // $('.modal').modal('hide'); //trying to get the modal to hide.
-  // $('#modal').modal('hide'); //trying to get the modal to hide.
-  // $('.modal-fade').modal('hide'); //trying to get the modal to hide.
-  // $('.fade').modal('hide'); //trying to get the modal to hide.
-  // $('.btn-lg').modal('hide'); //trying to get the modal to hide.
+  $('#myModal').modal('hide');
+  $('.gameboard').show();
+  // $('.restart').show();
+  // $('.total-games').show();
+  $('.message').hide();
 };
 
 const failure = (error) => {
-  console.log('HITING THE MODAL ui failure');
-
   console.error(error);
+};
+
+const changePasswordSuccess = (data) => {
+  console.log(data);
+  $('#myModal').modal('hide');
 };
 
 const signOutSuccess = (data) => {
   console.log(data);
-  // $('.total-games').hide(); //trying to make the total games button disappear when signing out
-  console.log('HIDING THE MODAL ui sign out success');
-
+  $('#myModal').modal('hide');
+  $('.gameboard').hide();
+  $('.restart').hide();
+  $('.show-game-info').hide();
+  $('.score').hide();
+  $('.message').text('Thanks for playing!');
+  $('.total-games').hide();
 };
 
+// <button type="button" class="total-games" id="total-games">games played</button>
+// <div class="api-message" id="api-message"></div>
 module.exports = {
   failure,
   success,
   signOutSuccess,
+  signInSuccess,
+  changePasswordSuccess,
 };
