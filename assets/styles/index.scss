@@ -36,6 +36,22 @@ body {
   text-align: center;
 }
 
+#sign-up {
+  display: block;
+}
+
+#sign-in {
+  display: initial;
+}
+
+#change-password {
+  display: none;
+}
+
+#sign-out {
+  display: none;
+}
+
 h1 {
   clear: both;
   font-family: 'Bungee Shade', cursive;
@@ -68,14 +84,6 @@ h1 {
   width: 150px;
 }
 
-.restart {
-  font-family: 'Bungee Shade', cursive;
-  font-size: 30px;
-  text-align: center;
-  visibility: hidden;
-  width: 275px;
-}
-
 .message {
   font-family: 'Bungee Shade', cursive;
   font-size: 30px;
@@ -83,12 +91,23 @@ h1 {
   width: 100%;
 }
 
-.total-games {
+.restart {
+  float: left;
   font-family: 'Bungee Shade', cursive;
-  font-size: 23px;
+  font-size: 30px;
+  margin: 0, auto;
   text-align: center;
   visibility: hidden;
-  width: 260px;
+  width: 275px;
+}
+
+.total-games {
+  float: both;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 23px;
+  margin: 0, auto;
+  text-align: center;
+  visibility: hidden;
 }
 
 footer {
