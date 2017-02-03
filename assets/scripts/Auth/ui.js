@@ -1,9 +1,5 @@
 'use strict';
 
-// TODO: Hide modal when successful sign out and the password was corretcly changed.
-// TODO: Show total-games when signing in. hide it when signing out.
-// TODO: make .restart create a new game.
-
 const success = () => {
 };
 
@@ -15,7 +11,7 @@ const signUpSuccess = (response) => {
 
 const signUpFailure = (data) => {
   console.log(data);
-  $('#myModal').effect('shake');
+  $('#sign-up-title').append("Oh boy, either those didn't match, or it's already taken, try again...");
 };
 
 const signInSuccess = (response) => {
@@ -37,7 +33,7 @@ const signInSuccess = (response) => {
 
 const signInFailure = (response) => {
   console.log(response);
-  $('#myModal').effect('shake');
+  $('#sign-in-title').append("Oh boy, either those didn't match, try again...");
 };
 
 const failure = (error) => {
@@ -51,7 +47,7 @@ const changePasswordSuccess = (data) => {
 
 const changePasswordFailure = (data) => {
   console.log(data);
-  $('#myModal').effect('shake');
+  $('#change-password-title').append("Whoops, those didn't match!");
 };
 
 const signOutSuccess = (data) => {
@@ -72,11 +68,11 @@ const signOutSuccess = (data) => {
 module.exports = {
   failure,
   success,
-  signOutSuccess,
+  signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,
   changePasswordFailure,
-  signUpSuccess,
+  signOutSuccess,
 };

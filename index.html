@@ -14,9 +14,6 @@
       <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
-      <!-- jquery shake effect -->
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -44,7 +41,7 @@
 
                 <form class="modal-button" id="sign-up">
                   <fieldset>
-                    <legend class="modal-titles">Sign up!</legend>
+                    <legend class="modal-titles" id="sign-up-title">Sign up!<br></legend>
                     <label class="modal-info">
                       Email: <br><input type="email" name="credentials[email]"><br>
                       Password: <br><input type="password" name="credentials[password]"><br>
@@ -59,7 +56,7 @@
 
                 <form class="modal-button" id="sign-in">
                   <fieldset>
-                  <legend class="modal-titles">Sign in!</legend>
+                  <legend class="modal-titles" id="sign-in-title">Sign in!<br></legend>
                   <label class="modal-info">
                     Email: <br><input type="email" name="credentials[email]"><br>
                     Password: <br><input type="password" name="credentials[password]"><br>
@@ -73,7 +70,7 @@
 
               <form class="modal-button" id="change-password">
                 <fieldset>
-                  <legend class="modal-titles">Change Password!</legend>
+                  <legend class="modal-titles" id="change-password-title">Change Password!<br></legend>
                   <label class="modal-info">
                     Current Password: <br><input type="password" name="passwords[old]"><br>
                     New Password: <br><input type="password" name="passwords[new]"><br>
