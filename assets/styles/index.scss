@@ -20,9 +20,7 @@ body {
   display: block;
   margin: auto;
   margin-top: 20px;
-  // float: right;
-  // margin-right: 10px;
-  // margin-top: 20px;
+  width: 480px;
 }
 
 .modal-titles {
@@ -106,7 +104,7 @@ h1 {
   margin-top: 50px;
   text-align: center;
   visibility: hidden;
-  width: 275px;
+  width: 480px;
 }
 
 .total-games {
@@ -118,7 +116,7 @@ h1 {
   margin-top: 30px;
   text-align: center;
   visibility: hidden;
-  width: 275px;
+  width: 480px;
 }
 
 footer {
@@ -132,15 +130,15 @@ footer {
 }
 
 @media (max-width: 500px) {
-  .user {
-    float: right;
-    margin-bottom: 5px;
-    width: 25px;
+
+  .btn {
+    margin-bottom: -10px;
+    width: 290px;
   }
 
   h1 {
     font-size: 35px;
-    margin-bottom: -14px;
+    margin-bottom: -5px;
   }
 
   .gameboard {
@@ -157,14 +155,18 @@ footer {
     border-radius: 50%;
     float: left;
     height: 85px;
+    line-height: 0;
     margin-left: 20px;
     margin-top: 20px;
     width: 85px;
   }
 
   .restart {
-    font-family: 'Bungee Shade', cursive;
-    text-align: center;
+    width: 290px;
+  }
+
+  .total-games {
+    width: 290px;
   }
 
   footer {
