@@ -69,6 +69,8 @@ const upDateBoards = function (event) {
   if ($(event.target).text() === '') {
     $(this).append(user);
     gameBoard[parseInt(event.target.id)] = user;
+
+    // also send it to the api
     checkWinner();
     switchUser();
   } else {

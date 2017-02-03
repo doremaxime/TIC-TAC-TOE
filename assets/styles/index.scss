@@ -154,11 +154,16 @@ footer {
     background-color: $black;
     border-radius: 50%;
     float: left;
+    font-size: 50px;
     height: 85px;
-    line-height: 0;
+    line-height: -1px;
     margin-left: 20px;
     margin-top: 20px;
     width: 85px;
+  }
+
+  .message {
+    font-size: 35px;
   }
 
   .restart {
