@@ -62,10 +62,11 @@ let switchUser = function () {
 // the user clicks on an ID, and sets off a chain of events that
 // updates the gameBoard(logic) and gameboard(html tag)
 const upDateBoards = function (event) {
+  $('.message').text('');
 
   //adds the user token to the id only if it is empty.
 
-  if ($('#' + event.target.id).text() === '') {
+  if ($(event.target).text() === '') {
     $(this).append(user);
     gameBoard[parseInt(event.target.id)] = user;
     checkWinner();
