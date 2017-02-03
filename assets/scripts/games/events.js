@@ -14,7 +14,6 @@ const onGetIndex = function (event) {
 };
 
 const onCreateGame = function (event) {
-  console.log('log: created game');
   event.preventDefault();
   api.create()
     .then((response) => {
@@ -34,7 +33,6 @@ const onGetShow = function (event) {
 };
 
 const totalGames = function (event) {
-  console.log('log: total games');
   event.preventDefault();
   api.getIndex()
     .then((response) => {

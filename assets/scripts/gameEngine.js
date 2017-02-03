@@ -48,8 +48,6 @@ function checkWinner() {
     gameOver = true;
     noneWins = true;
     $('.circle').hide();
-
-    //return;    do i need that?
   }
 }
 

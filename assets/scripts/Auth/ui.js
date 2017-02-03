@@ -3,19 +3,15 @@
 const success = () => {
 };
 
-const signUpSuccess = (response) => {
-  console.log(response);
-  // $('#sign-up').hide();
+const signUpSuccess = () => {
   $('#sign-up').css('display', 'none');
 };
 
-const signUpFailure = (data) => {
-  console.log(data);
+const signUpFailure = () => {
   $('#sign-up-title').append("Oh boy, either those didn't match, or it's already taken, try again...");
 };
 
-const signInSuccess = (response) => {
-  console.log(response);
+const signInSuccess = () => {
   $('#myModal').modal('hide');
   $('.gameboard').show();
   $('.gameboard').css('visibility', 'visible');
@@ -31,27 +27,22 @@ const signInSuccess = (response) => {
   $('#change-password').css('display', 'unset');
 };
 
-const signInFailure = (response) => {
-  console.log(response);
+const signInFailure = () => {
   $('#sign-in-title').append("Oh boy, either those didn't match, try again...");
 };
 
-const failure = (error) => {
-  console.error(error);
+const failure = () => {
 };
 
-const changePasswordSuccess = (data) => {
-  console.log(data);
+const changePasswordSuccess = () => {
   $('#myModal').modal('hide');
 };
 
-const changePasswordFailure = (data) => {
-  console.log(data);
+const changePasswordFailure = () => {
   $('#change-password-title').append("Whoops, those didn't match!");
 };
 
-const signOutSuccess = (data) => {
-  console.log(data);
+const signOutSuccess = () => {
   $('#myModal').modal('hide');
   $('.gameboard').hide();
   $('.restart').hide();
@@ -64,7 +55,6 @@ const signOutSuccess = (data) => {
   $('#change-password').css('display', 'none');
 };
 
-// <button type="button" class="total-games" id="total-games">games played</button>
 module.exports = {
   failure,
   success,
