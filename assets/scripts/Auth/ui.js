@@ -11,7 +11,7 @@ const signUpSuccess = () => {
 };
 
 const signUpFailure = () => {
-  $('#sign-up-title').append(" Oh boy, either those didn't match, or it's already taken, try again...");
+  $('#sign-up-title').text("E-mail already taken or passwords did not match");
 };
 
 const signInSuccess = () => {
@@ -34,7 +34,7 @@ const signInSuccess = () => {
 };
 
 const signInFailure = () => {
-  $('#sign-in-title').append(" Oh boy, those didn't match our records, try again...");
+  $('#sign-in-title').text("Wrong e-mail or Password");
 };
 
 const failure = () => {
@@ -48,7 +48,7 @@ const changePasswordSuccess = () => {
 };
 
 const changePasswordFailure = () => {
-  $('#change-password-title').append(" Whoops, hmm... try that again...");
+  $('#change-password-title').text("Current password is wrong");
 };
 
 const signOutSuccess = () => {
