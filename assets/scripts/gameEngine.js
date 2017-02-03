@@ -64,12 +64,8 @@ let switchUser = function () {
 const upDateBoards = function (event) {
 
   //adds the user token to the id only if it is empty.
-  if ($(event.target.id).text() === ('')) {
-    $(this).append(user);
-    gameBoard[parseInt(event.target.id)] = user;
-    checkWinner();
-    switchUser();
-  } else if (($(event.target.id).text() === ('')) && ($(event.target.id).text() !== user)) {
+
+  if ($('#' + event.target.id).text() === '') {
     $(this).append(user);
     gameBoard[parseInt(event.target.id)] = user;
     checkWinner();
