@@ -71,6 +71,8 @@ const upDateBoards = function (event) {
     gameBoard[parseInt(event.target.id)] = user;
 
     // also send it to the api
+
+
     checkWinner();
     switchUser();
   } else {
@@ -90,6 +92,10 @@ function restart() {
   oWins = false;
   noneWins = false;
   gameOver = false;
+
+
+
+
 }
 
 module.exports = {

@@ -14,23 +14,24 @@ const onGetIndex = function (event) {
 };
 
 const onCreateGame = function (event) {
+  console.log('events create');
   event.preventDefault();
   api.create()
     .then((response) => {
       store.game = response.game;
-      return store.game;
+      //return store.game;
     })
     .then(ui.createSuccess)
     .catch(ui.failure);
 };
 
-const onGetShow = function (event) {
-  event.preventDefault();
-  let id = parseInt($('#game-id').val());  ///
-  api.show(id)
-    .then(ui.success)
-    .catch(ui.failure);
-};
+// const onGetShow = function (event) {
+//   event.preventDefault();
+//   let id = parseInt($('#game-id').val());  ///
+//   api.show(id)
+//     .then(ui.success)
+//     .catch(ui.failure);
+// };
 
 const totalGames = function (event) {
   event.preventDefault();
@@ -53,5 +54,5 @@ module.exports = {
   addHandlers,
   onCreateGame,
   onGetIndex,
-  onGetShow,
+  //onGetShow,
 };
