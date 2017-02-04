@@ -1,4 +1,7 @@
 'use strict';
+const api = require('./games/api');
+const store = require('./store');
+const ui = require('./games/ui');
 
 // 3rd game engine
 
@@ -64,15 +67,15 @@ let switchUser = function () {
 const upDateBoards = function (event) {
   $('.message').text('');
 
-  //adds the user token to the id only if it is empty.
-
+  //adds the user token to the id only if it is empty to the logic and visual board.
   if ($(event.target).text() === '') {
     $(this).append(user);
     gameBoard[parseInt(event.target.id)] = user;
 
-    // also send it to the api
+    // updates board to API
+    api.update(store.game.id, event.target.id, user, checkWinner());
 
-
+    // checks for a winner/tie and if not, then switches the user for the next turn.
     checkWinner();
     switchUser();
   } else {
@@ -80,6 +83,7 @@ const upDateBoards = function (event) {
   }
 };
 
+// resets all variables and visuals.
 function restart() {
   $('.circle').text('');
   $('.circle').show();
@@ -92,15 +96,24 @@ function restart() {
   oWins = false;
   noneWins = false;
   gameOver = false;
-
-
-
-
 }
+
+// creates an ID for every new game to send to API and to be used when updating the board to the API.
+const onCreateGame = function (event) {
+  console.log('events create');
+  event.preventDefault();
+  restart();
+  api.create()
+    .then((response) => {
+      store.game = response.game;
+    })
+    .then(ui.createSuccess)
+    .catch(ui.failure);
+};
 
 module.exports = {
   upDateBoards,
-  restart,
   gameOver,
   user,
+  onCreateGame,
 };

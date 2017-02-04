@@ -3,9 +3,8 @@
 const api = require('./api');
 const store = require('../store');
 const ui = require('./ui');
+const gameEngine = require('../gameEngine');
 
-
-// These 4 functions activate the web requests in the api file
 const onGetIndex = function (event) {
   event.preventDefault();
   api.getIndex()
@@ -14,24 +13,14 @@ const onGetIndex = function (event) {
 };
 
 const onCreateGame = function (event) {
-  console.log('events create');
   event.preventDefault();
   api.create()
     .then((response) => {
       store.game = response.game;
-      //return store.game;
     })
     .then(ui.createSuccess)
     .catch(ui.failure);
 };
-
-// const onGetShow = function (event) {
-//   event.preventDefault();
-//   let id = parseInt($('#game-id').val());  ///
-//   api.show(id)
-//     .then(ui.success)
-//     .catch(ui.failure);
-// };
 
 const totalGames = function (event) {
   event.preventDefault();
@@ -47,12 +36,11 @@ const totalGames = function (event) {
 
 const addHandlers = () => {
   $('.total-games').on('click', totalGames);
-  $('.restart').on('click', onCreateGame);
+  $('.restart').on('click', gameEngine.onCreateGame);
 };
 
 module.exports = {
   addHandlers,
   onCreateGame,
   onGetIndex,
-  //onGetShow,
 };

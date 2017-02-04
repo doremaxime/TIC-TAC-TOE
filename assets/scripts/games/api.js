@@ -4,7 +4,6 @@ const config = require('../config');
 const store = require('../store');
 
 const getIndex = function () {
-  console.log('getIndex');
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'GET',
@@ -37,10 +36,10 @@ const create = function (data) {
 //   });
 // };
 
-const update = function (index, user, gameOver) {
-  console.log('update');
+const update = function (id, index, user, checkWinner) {
+  console.log('update api');
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
+    url: config.apiOrigin + '/games/' + id,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`,
@@ -51,7 +50,7 @@ const update = function (index, user, gameOver) {
           index: index,
           value: user,
         },
-        over: gameOver,
+        over: checkWinner,
       },
     },
   });
