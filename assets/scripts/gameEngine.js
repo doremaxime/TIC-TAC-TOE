@@ -54,6 +54,7 @@ function checkWinner() {
   }
 }
 
+// Alternats user/token every turn.
 let switchUser = function () {
   if (user === 'x') {
     user = 'o';
@@ -63,16 +64,22 @@ let switchUser = function () {
 };
 
 // the user clicks on an ID, and sets off a chain of events that
-// updates the gameBoard(logic) and gameboard(html tag)
+// updates the gameBoard(logic) and visual gameboard.
 const upDateBoards = function (event) {
+
+  // If user had tried to click a taken space, the message will go away this time, provided it's an empty one this time.
   $('.message').text('');
 
   //adds the user token to the id only if it is empty to the logic and visual board.
   if ($(event.target).text() === '') {
+
+    // shows the token
     $(this).append(user);
+
+    // adds token to array in the index
     gameBoard[parseInt(event.target.id)] = user;
 
-    // updates board to API
+    // updates board to API. ISSUE IS HERE.
     api.update(store.game.id, event.target.id, user, checkWinner());
 
     // checks for a winner/tie and if not, then switches the user for the next turn.
@@ -100,11 +107,17 @@ function restart() {
 
 // creates an ID for every new game to send to API and to be used when updating the board to the API.
 const onCreateGame = function (event) {
-  console.log('events create');
+  console.log('gameEgnine onCreateGame checkpoint');
+
   event.preventDefault();
+
+  // resets game.
   restart();
+
   api.create()
     .then((response) => {
+
+      // the 'game' here is a keywork for our project correct?
       store.game = response.game;
     })
     .then(ui.createSuccess)
@@ -116,4 +129,5 @@ module.exports = {
   gameOver,
   user,
   onCreateGame,
+  restart,
 };

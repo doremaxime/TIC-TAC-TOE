@@ -4,6 +4,7 @@ const config = require('../config');
 const store = require('../store');
 
 const getIndex = function () {
+  console.log('api getIndex checkpoint');
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'GET',
@@ -14,7 +15,7 @@ const getIndex = function () {
 };
 
 const create = function (data) {
-  console.log('create');
+  console.log('api create checkpoint');
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
@@ -37,7 +38,7 @@ const create = function (data) {
 // };
 
 const update = function (id, index, user, checkWinner) {
-  console.log('update api');
+  console.log('api update checkpoint');
   return $.ajax({
     url: config.apiOrigin + '/games/' + id,
     method: 'PATCH',

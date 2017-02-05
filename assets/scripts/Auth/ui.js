@@ -1,5 +1,7 @@
 'use strict';
 
+const gameEngine = require('../gameEngine');
+
 const success = () => {
 };
 
@@ -14,7 +16,8 @@ const signUpFailure = () => {
   $('#sign-up-title').text("E-mail already taken or passwords did not match");
 };
 
-const signInSuccess = () => {
+const signInSuccess = (data) => {
+  console.log(data);
   $('#myModal').modal('hide');
   $('.gameboard').show();
   $('.gameboard').css('visibility', 'visible');
@@ -28,6 +31,7 @@ const signInSuccess = () => {
   $('#sign-in').css('display', 'none');
   $('#sign-out').css('display', 'unset');
   $('#change-password').css('display', 'unset');
+  gameEngine.restart();
 
   // in case the user failed to sign-in before, this return his successful entry to 'Sign in!'
   $('#sign-in-title').text('Sign in!');
