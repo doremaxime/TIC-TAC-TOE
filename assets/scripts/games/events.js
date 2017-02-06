@@ -13,16 +13,17 @@ const onGetIndex = function (event) {
     .catch(ui.failure);
 };
 
-const onCreateGame = function (event) {
-  console.log('events onCreateGame checkpoint');
-  event.preventDefault();
-  api.create()
-    .then((response) => {
-      store.game = response.game;
-    })
-    .then(ui.createSuccess)
-    .catch(ui.failure);
-};
+// const onCreateGame = function (event) {
+//   console.log('events onCreateGame checkpoint');
+//   event.preventDefault();
+//   api.create()
+//     .then((response) => {
+//       store.game = response.game;
+//       return response;
+//     })
+//     .then(ui.createSuccess)
+//     .catch(ui.failure);
+// };
 
 const totalGames = function (event) {
   console.log('events totalGames checkpoint');
@@ -44,6 +45,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onCreateGame,
+  //onCreateGame,
   onGetIndex,
 };

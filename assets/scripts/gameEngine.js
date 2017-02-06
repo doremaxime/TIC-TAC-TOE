@@ -116,12 +116,12 @@ const onCreateGame = function (event) {
 
   api.create()
     .then((response) => {
-
-      // the 'game' here is a keywork for our project correct?
       store.game = response.game;
+      return response;
     })
     .then(ui.createSuccess)
     .catch(ui.failure);
+
 };
 
 module.exports = {

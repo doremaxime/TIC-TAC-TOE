@@ -8,9 +8,9 @@ const failure = (error) => {
   console.error(error);
 };
 
-const createSuccess = (data) => {
+const createSuccess = (response) => {
   console.log('ui onCreateGame checkpoint');
-  console.log(data);
+  console.log(response);
 };
 
 module.exports = {
