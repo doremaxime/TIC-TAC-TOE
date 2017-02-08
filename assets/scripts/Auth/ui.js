@@ -17,7 +17,7 @@ const signUpFailure = () => {
 };
 
 const signInSuccess = (data) => {
-  console.log(data);
+  // console.log(data);
   $('#myModal').modal('hide');
   $('.gameboard').show();
   $('.gameboard').css('visibility', 'visible');

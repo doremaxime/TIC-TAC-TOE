@@ -6,7 +6,6 @@ const ui = require('./ui');
 const gameEngine = require('../gameEngine');
 
 const onGetIndex = function (event) {
-  console.log('events getIndex checkpoint');
   event.preventDefault();
   api.getIndex()
     .then(ui.success)
@@ -15,7 +14,6 @@ const onGetIndex = function (event) {
 
 // this is now in gameEngine.
 // const onCreateGame = function (event) {
-//   console.log('events onCreateGame checkpoint');
 //   event.preventDefault();
 //   api.create()
 //     .then((response) => {
@@ -27,7 +25,6 @@ const onGetIndex = function (event) {
 // };
 
 const totalGames = function (event) {
-  console.log('events totalGames checkpoint');
   event.preventDefault();
   api.getIndex()
     .then((response) => {

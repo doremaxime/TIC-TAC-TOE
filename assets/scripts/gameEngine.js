@@ -109,8 +109,8 @@ function restart() {
 // creates an ID for every new game to send to API and to be used when updating
 // the board to the API.
 const onCreateGame = function () { //took out event from parameter
-  console.log('gameEgnine onCreateGame checkpoint');
 
+  // commented out below as it raised an error in the browser console.
   // event.preventDefault();
 
   // resets game.
