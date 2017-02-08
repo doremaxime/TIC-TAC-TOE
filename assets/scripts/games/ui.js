@@ -13,8 +13,14 @@ const createSuccess = (response) => {
   console.log(response);
 };
 
+const updateSuccess = (response) => {
+  console.log('ui update checkpoint');
+  console.log(response);
+};
+
 module.exports = {
   success,
   failure,
   createSuccess,
+  updateSuccess,
 };

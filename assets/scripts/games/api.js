@@ -27,7 +27,7 @@ const create = function (data) {
 };
 
 const update = function (id, index, user, checkWinner) {
-  console.log('api update checkpoint');
+  console.log('api update checkpoint start');
   return $.ajax({
     url: config.apiOrigin + '/games/' + id,
     method: 'PATCH',

@@ -81,7 +81,7 @@ const upDateBoards = function (event) {
     gameBoard[parseInt(event.target.id)] = user;
 
     // updates board to API. ISSUE IS HERE.
-    api.update(store.game.id, event.target.id, user, checkWinner());
+    api.update(store.game.id, event.target.id, user, checkWinner()).then(ui.updateSuccess);
 
     // checks for a winner/tie and if not, then switches the user for the next turn.
     checkWinner();
@@ -108,7 +108,7 @@ function restart() {
 
 // creates an ID for every new game to send to API and to be used when updating
 // the board to the API.
-const onCreateGame = function (event) {
+const onCreateGame = function () { //took out event from parameter
   console.log('gameEgnine onCreateGame checkpoint');
 
   // event.preventDefault();

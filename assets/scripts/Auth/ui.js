@@ -35,6 +35,7 @@ const signInSuccess = (data) => {
 
   // in case the user failed to sign-in before, this return his successful entry to 'Sign in!'
   $('#sign-in-title').text('Sign in!');
+  $('#sign-up-title').text('Sign up!');
 };
 
 const signInFailure = () => {

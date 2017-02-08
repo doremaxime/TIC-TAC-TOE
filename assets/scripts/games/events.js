@@ -13,6 +13,7 @@ const onGetIndex = function (event) {
     .catch(ui.failure);
 };
 
+// this is now in gameEngine.
 // const onCreateGame = function (event) {
 //   console.log('events onCreateGame checkpoint');
 //   event.preventDefault();
