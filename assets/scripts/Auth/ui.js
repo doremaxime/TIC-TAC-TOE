@@ -13,7 +13,7 @@ const signUpSuccess = () => {
 };
 
 const signUpFailure = () => {
-  $('#sign-up-title').text("E-mail already taken or passwords did not match");
+  $('#sign-up-title').text('E-mail already taken or passwords did not match');
 };
 
 const signInSuccess = (data) => {
@@ -38,7 +38,7 @@ const signInSuccess = (data) => {
 };
 
 const signInFailure = () => {
-  $('#sign-in-title').text("Wrong e-mail or Password");
+  $('#sign-in-title').text('Wrong e-mail or Password');
 };
 
 const failure = () => {
@@ -47,12 +47,13 @@ const failure = () => {
 const changePasswordSuccess = () => {
   $('#myModal').modal('hide');
 
-  // in case the user failed to change password before, this return his successful entry to 'Change Password!'
+  // in case the user failed to change password before, this return his
+  // successful entry to 'Change Password!'
   $('#change-password-title').text('Change Password!');
 };
 
 const changePasswordFailure = () => {
-  $('#change-password-title').text("Current password is wrong");
+  $('#change-password-title').text('Current password is wrong');
 };
 
 const signOutSuccess = () => {

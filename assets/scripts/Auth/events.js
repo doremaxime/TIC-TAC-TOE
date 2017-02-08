@@ -5,7 +5,6 @@ const api = require('./api');
 const ui = require('./ui');
 const store = require('../store');
 const gameEngine = require('../gameEngine');
-const games = require('../games/events.js');
 
 const onSignUp = function (event) {
   event.preventDefault();
@@ -60,8 +59,6 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
-  $('.show-game-info').on('submit', games.onShowGames);
-  // $('.restart').on('click', gameEngine.restart);
   $('#0').on('click', gameEngine.upDateBoards);
   $('#1').on('click', gameEngine.upDateBoards);
   $('#2').on('click', gameEngine.upDateBoards);

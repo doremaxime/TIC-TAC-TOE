@@ -67,7 +67,8 @@ let switchUser = function () {
 // updates the gameBoard(logic) and visual gameboard.
 const upDateBoards = function (event) {
 
-  // If user had tried to click a taken space, the message will go away this time, provided it's an empty one this time.
+  // If user had tried to click a taken space, the message will go away this
+  // time, provided it's an empty one this time.
   $('.message').text('');
 
   //adds the user token to the id only if it is empty to the logic and visual board.
@@ -105,11 +106,12 @@ function restart() {
   gameOver = false;
 }
 
-// creates an ID for every new game to send to API and to be used when updating the board to the API.
+// creates an ID for every new game to send to API and to be used when updating
+// the board to the API.
 const onCreateGame = function (event) {
   console.log('gameEgnine onCreateGame checkpoint');
 
-  event.preventDefault();
+  // event.preventDefault();
 
   // resets game.
   restart();

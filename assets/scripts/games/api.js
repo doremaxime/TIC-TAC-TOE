@@ -26,17 +26,6 @@ const create = function (data) {
   });
 };
 
-// const show = function (id) {
-//   console.log('show');
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + id,
-//     method: 'GET',
-//     headers: {
-//       Authorization: `Token token=${store.user.token}`,
-//     },
-//   });
-// };
-
 const update = function (id, index, user, checkWinner) {
   console.log('api update checkpoint');
   return $.ajax({
@@ -57,25 +46,8 @@ const update = function (id, index, user, checkWinner) {
   });
 };
 
-// const updateGameStatus = function (over) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + store.game.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: `Token token=${store.user.token}`,
-//     },
-//     data: {
-//         game: {
-//           over: over,
-//         },
-//       },
-//   });
-// };
-
 module.exports = {
   getIndex,
   create,
-  // show,
   update,
-  // updateGameStatus,
 };
