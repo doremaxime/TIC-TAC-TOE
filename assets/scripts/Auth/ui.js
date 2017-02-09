@@ -31,6 +31,7 @@ const signInSuccess = (data) => {
   $('#sign-in').css('display', 'none');
   $('#sign-out').css('display', 'unset');
   $('#change-password').css('display', 'unset');
+  $('#change-password-title').text('Change Password!');
   gameEngine.onCreateGame();
 
   // in case the user failed to sign-in before, this return his successful entry to 'Sign in!'
