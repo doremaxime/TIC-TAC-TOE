@@ -97,6 +97,7 @@ function restart() {
   $('.circle').show();
   $('.message').text('');
   $('.message').show();
+  $('#total-games').text('games played');
   gameBoard = ['', '', '', '', '', '', '', '', ''];
   user = 'x';
   count = 0;
