@@ -34,6 +34,7 @@ function checkWinner() {
     gameOver = true;
     xWins = true;
     $('.circle').hide();
+    $('.gameboard').css('display', 'none');
   } else if ((gameBoard[0] === 'o' && gameBoard[1] === 'o' && gameBoard[2] === 'o') ||
              (gameBoard[3] === 'o' && gameBoard[4] === 'o' && gameBoard[5] === 'o') ||
              (gameBoard[6] === 'o' && gameBoard[7] === 'o' && gameBoard[8] === 'o') ||
@@ -46,11 +47,13 @@ function checkWinner() {
     gameOver = true;
     oWins = true;
     $('.circle').hide();
+    $('.gameboard').css('display', 'none');
   } else if (checkEachIndex() === true) {
     $('.message').text("It's a tie");
     gameOver = true;
     noneWins = true;
     $('.circle').hide();
+    $('.gameboard').css('display', 'none');
   }
 }
 
@@ -98,6 +101,7 @@ function restart() {
   $('.message').text('');
   $('.message').show();
   $('#total-games').text('games played');
+  $('.gameboard').css('display', 'inherit');
   gameBoard = ['', '', '', '', '', '', '', '', ''];
   user = 'x';
   count = 0;
