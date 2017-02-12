@@ -7,8 +7,6 @@ const success = () => {
 
 const signUpSuccess = () => {
   $('#sign-up').css('display', 'none');
-
-  // in case the user failed to sign-up before, this return his successful entry to 'Sign up!'
   $('#sign-up-title').text('Sign up!');
 };
 
@@ -16,8 +14,7 @@ const signUpFailure = () => {
   $('#sign-up-title').text('E-mail already taken or passwords did not match');
 };
 
-const signInSuccess = (data) => {
-  // console.log(data);
+const signInSuccess = () => {
   $('#myModal').modal('hide');
   $('.gameboard').show();
   $('.gameboard').css('visibility', 'visible');
@@ -33,10 +30,9 @@ const signInSuccess = (data) => {
   $('#change-password').css('display', 'unset');
   $('#change-password-title').text('Change Password!');
   gameEngine.onCreateGame();
-
-  // in case the user failed to sign-in before, this return his successful entry to 'Sign in!'
   $('#sign-in-title').text('Sign in!');
   $('#sign-up-title').text('Sign up!');
+  $('.clear-input').val('');
 };
 
 const signInFailure = () => {
@@ -48,10 +44,8 @@ const failure = () => {
 
 const changePasswordSuccess = () => {
   $('#myModal').modal('hide');
-
-  // in case the user failed to change password before, this return his
-  // successful entry to 'Change Password!'
   $('#change-password-title').text('Change Password!');
+  $('.clear-input').val('');
 };
 
 const changePasswordFailure = () => {
@@ -69,6 +63,7 @@ const signOutSuccess = () => {
   $('#sign-in').css('display', 'unset');
   $('#sign-out').css('display', 'none');
   $('#change-password').css('display', 'none');
+  $('.clear-input').val('');
 };
 
 module.exports = {

@@ -12,18 +12,6 @@ const onGetIndex = function (event) {
     .catch(ui.failure);
 };
 
-// this is now in gameEngine.
-// const onCreateGame = function (event) {
-//   event.preventDefault();
-//   api.create()
-//     .then((response) => {
-//       store.game = response.game;
-//       return response;
-//     })
-//     .then(ui.createSuccess)
-//     .catch(ui.failure);
-// };
-
 const totalGames = function (event) {
   event.preventDefault();
   api.getIndex()
@@ -43,7 +31,5 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-
-  //onCreateGame,
   onGetIndex,
 };

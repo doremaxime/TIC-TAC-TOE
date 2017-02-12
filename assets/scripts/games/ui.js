@@ -1,19 +1,15 @@
 'use strict';
 
-const success = (data) => {
-  //console.log(data);
+const success = () => {
 };
 
-const failure = (error) => {
-  //console.error(error);
+const failure = () => {
 };
 
-const createSuccess = (response) => {
-  //console.log(response);
+const createSuccess = () => {
 };
 
-const updateSuccess = (response) => {
-  //console.log(response);
+const updateSuccess = () => {
 };
 
 module.exports = {

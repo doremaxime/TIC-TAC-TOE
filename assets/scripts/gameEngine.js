@@ -3,11 +3,7 @@ const api = require('./games/api');
 const store = require('./store');
 const ui = require('./games/ui');
 
-// 3rd game engine
-
-// Make a new 9-element array and set every element to an empty string.
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
-
 let count = 0;
 let user = 'x';
 let xWins = false;
@@ -20,7 +16,6 @@ function checkEachIndex() {
   return gameBoard.every((e) => e !== '');
 }
 
-// if there are 3 of the same token in a row, then that token wins.
 function checkWinner() {
   if ((gameBoard[0] === 'x' && gameBoard[1] === 'x' && gameBoard[2] === 'x') ||
       (gameBoard[3] === 'x' && gameBoard[4] === 'x' && gameBoard[5] === 'x') ||
@@ -113,12 +108,8 @@ function restart() {
 
 // creates an ID for every new game to send to API and to be used when updating
 // the board to the API.
-const onCreateGame = function () { //took out event from parameter
+const onCreateGame = function () {
 
-  // commented out below as it raised an error in the browser console.
-  // event.preventDefault();
-
-  // resets game.
   restart();
 
   api.create()
