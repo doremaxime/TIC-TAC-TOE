@@ -6,8 +6,8 @@ const success = () => {
 };
 
 const signUpSuccess = () => {
-  $('#sign-up').css('display', 'none');
-  $('#sign-up-title').text('Sign up!');
+  //$('#sign-up').css('display', 'none');
+  $('#sign-up-title').text('Great, now sign-in!');
 };
 
 const signUpFailure = () => {
