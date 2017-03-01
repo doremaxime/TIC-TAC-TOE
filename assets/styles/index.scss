@@ -143,6 +143,15 @@ footer {
     width: 170px;
   }
 
+  .container-fluid {
+    display: block;
+    width: 100%;
+  }
+
+  #modal-button {
+    width: 70px;
+  }
+
   h1 {
     font-size: 21px;
     margin-bottom: -5px;
@@ -162,11 +171,11 @@ footer {
     border-radius: 50%;
     float: left;
     font-size: 50px;
-    height: 40px;
+    height: 41px;
     line-height: -1px;
     margin-left: 20px;
     margin-top: 20px;
-    width: 40px;
+    width: 41px;
   }
 
   .message {
@@ -176,10 +185,13 @@ footer {
 
   .restart {
     width: 170px;
+    margin-bottom: 2px;
   }
 
   .total-games {
-    width: 4grunt0px;
+    font-size: 16px;
+    width: 170px;
+    margin-bottom: 2px;
   }
 
   footer {
@@ -188,5 +200,6 @@ footer {
     font-size: 8px;
     margin-top: 45px;
     text-align: center;
+    margin-top: 10px;
   }
 }
