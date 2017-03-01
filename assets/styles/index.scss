@@ -132,23 +132,29 @@ footer {
 
 @media (max-width: 500px) {
 
+  .modal {
+      position: relative;
+      overflow-y: auto;
+      margin: auto;
+  }
+
   .btn {
-    margin-bottom: -10px;
-    width: 290px;
+    margin-bottom: -30px;
+    width: 170px;
   }
 
   h1 {
-    font-size: 35px;
+    font-size: 21px;
     margin-bottom: -5px;
   }
 
   .gameboard {
     background-color: $pink;
     display: block;
-    height: 320px;
-    margin-bottom: 10px;
+    height: 200px;
+    margin-bottom: -30px;
     position: relative;
-    width: 330px;
+    width: 201px;
   }
 
   .circle {
@@ -156,24 +162,24 @@ footer {
     border-radius: 50%;
     float: left;
     font-size: 50px;
-    height: 85px;
+    height: 40px;
     line-height: -1px;
     margin-left: 20px;
     margin-top: 20px;
-    width: 85px;
+    width: 40px;
   }
 
   .message {
-    font-size: 29px;
+    font-size: 20px;
     margin-bottom: -30px;
   }
 
   .restart {
-    width: 290px;
+    width: 170px;
   }
 
   .total-games {
-    width: 290px;
+    width: 4grunt0px;
   }
 
   footer {
