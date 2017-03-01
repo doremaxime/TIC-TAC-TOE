@@ -134,9 +134,9 @@ footer {
 @media (max-width: 500px) {
 
   .modal {
-      position: relative;
-      overflow-y: auto;
-      margin: auto;
+    margin: auto;
+    overflow-y: auto;
+    position: relative;
   }
 
   .btn {
@@ -155,6 +155,7 @@ footer {
   h1 {
     font-size: 21px;
     margin-bottom: -5px;
+    margin-top: 5px;
   }
 
   .gameboard {
@@ -172,7 +173,7 @@ footer {
     float: left;
     font-size: 50px;
     height: 41px;
-    line-height: -1px;
+    line-height: .6px;
     margin-left: 20px;
     margin-top: 20px;
     width: 41px;
@@ -184,22 +185,20 @@ footer {
   }
 
   .restart {
-    width: 170px;
     margin-bottom: 2px;
+    width: 170px;
   }
 
   .total-games {
     font-size: 16px;
-    width: 170px;
     margin-bottom: 2px;
+    width: 170px;
   }
 
   footer {
     clear: both;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 8px;
-    margin-top: 45px;
-    text-align: center;
     margin-top: 10px;
   }
 }
