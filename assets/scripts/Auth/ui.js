@@ -2,16 +2,28 @@
 
 const gameEngine = require('../gameEngine');
 
+function shakeForm() {
+   let l = 20;
+   for( let i = 0; i < 10; i++ )
+     $(".modal").animate( {
+         'margin-left': "+=" + ( l = -l ) + 'px',
+         'margin-right': "-=" + l + 'px'
+      }, 50);
+
+};
+
 const success = () => {
 };
 
 const signUpSuccess = () => {
   //$('#sign-up').css('display', 'none');
-  $('#sign-up-title').text('Great, now sign-in!');
+  // $('#sign-up-title').text('Great, now sign-in!');
+  shakeForm();
 };
 
 const signUpFailure = () => {
-  $('#sign-up-title').text('E-mail already taken or passwords did not match');
+  // $('#sign-up-title').text('E-mail already taken or passwords did not match');
+  shakeForm();
 };
 
 const signInSuccess = () => {
@@ -28,15 +40,16 @@ const signInSuccess = () => {
   $('#sign-in').css('display', 'none');
   $('#sign-out').css('display', 'unset');
   $('#change-password').css('display', 'unset');
-  $('#change-password-title').text('Change Password!');
+  // $('#change-password-title').text('Change Password!');
   gameEngine.onCreateGame();
-  $('#sign-in-title').text('Sign in!');
-  $('#sign-up-title').text('Sign up!');
+  // $('#sign-in-title').text('Sign in!');
+  // $('#sign-up-title').text('Sign up!');
   $('.clear-input').val('');
 };
 
 const signInFailure = () => {
-  $('#sign-in-title').text('Wrong e-mail or Password');
+  // $('#sign-in-title').text('Wrong e-mail or Password');
+  shakeForm();
 };
 
 const failure = () => {
@@ -44,12 +57,13 @@ const failure = () => {
 
 const changePasswordSuccess = () => {
   $('#myModal').modal('hide');
-  $('#change-password-title').text('Change Password!');
+  // $('#change-password-title').text('Change Password!');
   $('.clear-input').val('');
 };
 
 const changePasswordFailure = () => {
-  $('#change-password-title').text('Current password is wrong');
+  // $('#change-password-title').text('Current password is wrong');
+  shakeForm();
 };
 
 const signOutSuccess = () => {
