@@ -143,10 +143,10 @@ footer {
     width: 170px;
   }
 
-  .container-fluid {
-    display: block;
-    width: 100%;
-  }
+  // .container-fluid {
+  //   display: block;
+  //   width: 100%;
+  // }
 
   .btn-xs {
     width: 70px;
@@ -173,25 +173,29 @@ footer {
     float: left;
     font-size: 50px;
     height: 41px;
-    line-height: .6px;
+    line-height: .6em;
     margin-left: 20px;
     margin-top: 20px;
     width: 41px;
   }
 
   .message {
-    font-size: 20px;
-    margin-bottom: -30px;
+    font-size: 18px;
+    margin-bottom: -10px;
+    margin-top: 45px;
   }
 
   .restart {
+    font-size: 20px;
     margin-bottom: 2px;
+    margin-top: 15px;
     width: 170px;
   }
 
   .total-games {
     font-size: 16px;
     margin-bottom: 2px;
+    margin-top: 15px;
     width: 170px;
   }
 
