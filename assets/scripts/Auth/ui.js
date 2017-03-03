@@ -17,8 +17,8 @@ const success = () => {
 
 const signUpSuccess = () => {
   //$('#sign-up').css('display', 'none');
-  // $('#sign-up-title').text('Great, now sign-in!');
-  shakeForm();
+  $('.clear-input').val('');
+  $('#sign-up-title').text('Great, now sign-in!');
 };
 
 const signUpFailure = () => {
