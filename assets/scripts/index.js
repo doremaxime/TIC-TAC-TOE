@@ -14,7 +14,7 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 const authEvents = require('./auth/events.js');
 
-// On Document ready
+// all handlers are ready when document is loaded.
 $(() => {
   authEvents.addHandlers();
   gamesEvents.addHandlers();

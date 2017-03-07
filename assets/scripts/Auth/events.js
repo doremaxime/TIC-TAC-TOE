@@ -7,8 +7,11 @@ const store = require('../store');
 const gameEngine = require('../gameEngine');
 
 const onSignUp = function (event) {
+
+  // stops page from refreshing
   event.preventDefault();
 
+  // Takes input from the input fields and assigns them to data
   let data = getFormFields(event.target);
 
   api.signUp(data)
@@ -17,8 +20,11 @@ const onSignUp = function (event) {
 };
 
 const onSignIn = function (event) {
+
+  // stops page from refreshing
   event.preventDefault();
 
+  // Takes input from the input fields and assigns them to data
   let data = getFormFields(event.target);
 
   api.signIn(data)
@@ -31,8 +37,11 @@ const onSignIn = function (event) {
 };
 
 const onChangePassword = function (event) {
+
+  // stops page from refreshing
   event.preventDefault();
 
+  // Takes input from the input fields and assigns them to data
   let data = getFormFields(event.target);
 
   api.changePassword(data)
@@ -42,6 +51,8 @@ const onChangePassword = function (event) {
 };
 
 const onSignOut = function (event) {
+
+  // stops page from refreshing
   event.preventDefault();
 
   api.signOut()
@@ -59,6 +70,8 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
+
+  // click handlers for each circle
   $('#0').on('click', gameEngine.upDateBoards);
   $('#1').on('click', gameEngine.upDateBoards);
   $('#2').on('click', gameEngine.upDateBoards);

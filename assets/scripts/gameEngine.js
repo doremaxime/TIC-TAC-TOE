@@ -3,6 +3,7 @@ const api = require('./games/api');
 const store = require('./store');
 const ui = require('./games/ui');
 
+// Sets all veriables for the commancement of a game
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 let count = 0;
 let user = 'x';
@@ -11,12 +12,14 @@ let oWins = false;
 let noneWins = false;
 let gameOver = false;
 
-// this function is for use in the checkWinner function to see if all indexes are not empty.
+// For use in the checkWinner function to see if all indexes are not empty.
 function checkEachIndex() {
   return gameBoard.every((e) => e !== '');
 }
 
 function checkWinner() {
+
+  // if 3 in a row/column/diagonaly are the same token then that user wins
   if ((gameBoard[0] === 'x' && gameBoard[1] === 'x' && gameBoard[2] === 'x') ||
       (gameBoard[3] === 'x' && gameBoard[4] === 'x' && gameBoard[5] === 'x') ||
       (gameBoard[6] === 'x' && gameBoard[7] === 'x' && gameBoard[8] === 'x') ||
@@ -25,11 +28,17 @@ function checkWinner() {
       (gameBoard[2] === 'x' && gameBoard[5] === 'x' && gameBoard[8] === 'x') ||
       (gameBoard[0] === 'x' && gameBoard[4] === 'x' && gameBoard[8] === 'x') ||
       (gameBoard[2] === 'x' && gameBoard[4] === 'x' && gameBoard[6] === 'x')) {
+
+    // displays message that that user won
     $('.message').text('X won!');
     gameOver = true;
     xWins = true;
+
+    // hides the board so that player cannot keep playing.
     $('.circle').hide();
     $('.gameboard').css('display', 'none');
+
+    // if 3 in a row/column/diagonaly are the same token then that user wins
   } else if ((gameBoard[0] === 'o' && gameBoard[1] === 'o' && gameBoard[2] === 'o') ||
              (gameBoard[3] === 'o' && gameBoard[4] === 'o' && gameBoard[5] === 'o') ||
              (gameBoard[6] === 'o' && gameBoard[7] === 'o' && gameBoard[8] === 'o') ||
@@ -38,21 +47,29 @@ function checkWinner() {
              (gameBoard[2] === 'o' && gameBoard[5] === 'o' && gameBoard[8] === 'o') ||
              (gameBoard[0] === 'o' && gameBoard[4] === 'o' && gameBoard[8] === 'o') ||
              (gameBoard[2] === 'o' && gameBoard[4] === 'o' && gameBoard[6] === 'o')) {
+
+    // displays message that that user won
     $('.message').text('O won!');
     gameOver = true;
     oWins = true;
+
+    // hides the board so that player cannot keep playing
     $('.circle').hide();
     $('.gameboard').css('display', 'none');
   } else if (checkEachIndex() === true) {
+
+    // displays message that it is a tie
     $('.message').text("It's a tie");
     gameOver = true;
     noneWins = true;
+
+    // hides the board
     $('.circle').hide();
     $('.gameboard').css('display', 'none');
   }
 }
 
-// Alternats user/token every turn.
+// Alternates user/token every turn.
 let switchUser = function () {
   if (user === 'x') {
     user = 'o';
@@ -83,8 +100,12 @@ const upDateBoards = function (event) {
 
     // checks for a winner/tie and if not, then switches the user for the next turn.
     checkWinner();
+
+    // switches the user for next turn
     switchUser();
   } else {
+
+    // message let's user know that she cannot place a token there and therefore needs to play again
     $('.message').text('already taken');
   }
 };
@@ -110,8 +131,10 @@ function restart() {
 // the board to the API.
 const onCreateGame = function () {
 
+  // everytime a game is created all variables are reset
   restart();
 
+  // let's backend know that new game is created and counter of games played is tracked
   api.create()
     .then((response) => {
       store.game = response.game;

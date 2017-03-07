@@ -24,6 +24,7 @@ const create = function (data) {
   });
 };
 
+// updates server every time a token is placed by user
 const update = function (id, index, user, checkWinner) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + id,
