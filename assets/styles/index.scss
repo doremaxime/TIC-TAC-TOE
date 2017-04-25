@@ -122,12 +122,13 @@ h1 {
 }
 
 footer {
-  clear: both;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 15px;
-  height: 20px;
-  margin-top: 50px;
-  position: relative;
   text-align: center;
 }
 
@@ -140,31 +141,26 @@ footer {
   }
 
   .btn {
-    width: 170px;
+    width: 100px;
   }
-
-  // .container-fluid {
-  //   display: block;
-  //   width: 100%;
-  // }
 
   .btn-xs {
     width: 70px;
   }
 
   h1 {
-    font-size: 21px;
+    font-size: 40px;
     margin-bottom: -5px;
-    margin-top: 5px;
+    margin-top: 15px;
   }
 
   .gameboard {
     background-color: $pink;
     display: block;
-    height: 200px;
+    margin-top: 20px;
     margin-bottom: -30px;
     position: relative;
-    width: 201px;
+    width: 100%;
   }
 
   .circle {
@@ -172,37 +168,34 @@ footer {
     border-radius: 50%;
     float: left;
     font-size: 50px;
-    height: 41px;
-    line-height: .6em;
+    height: 18%;
+    width: 25%;
     margin-left: 20px;
     margin-top: 20px;
-    width: 41px;
   }
 
   .message {
-    font-size: 18px;
+    font-size: 40px;
     margin-bottom: -10px;
     margin-top: 45px;
   }
 
   .restart {
-    font-size: 20px;
-    margin-bottom: 2px;
-    margin-top: 15px;
-    width: 170px;
+    font-size: 35px;
+    position:fixed;
+    left: 0;
+    bottom: 90px;
+    width: 100%;
+    text-align: center;
   }
 
   .total-games {
-    font-size: 10px;
-    margin-bottom: 2px;
-    margin-top: 15px;
-    width: 170px;
+    font-size: 30px;
+    position: fixed;
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
   }
 
-  footer {
-    clear: both;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 8px;
-    margin-top: 10px;
-  }
 }

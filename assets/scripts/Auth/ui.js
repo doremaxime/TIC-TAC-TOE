@@ -96,7 +96,7 @@ const signOutSuccess = () => {
   $('#change-password').css('display', 'none');
 
   // user is now back to sign up/in view and is thanked for playing.
-  $('.message').text('Thanks for playing!');
+  $('.message').html('Thanks for playing!');
 
   // clears input fields
   $('.clear-input').val('');
