@@ -18,4 +18,5 @@ const authEvents = require('./auth/events.js');
 $(() => {
   authEvents.addHandlers();
   gamesEvents.addHandlers();
+  $('.no-fouc').removeClass('no-fouc')
 });

@@ -4,6 +4,17 @@
 <head>
   <title>Tic-Tac-Max</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- prevents FOUC -->
+  <style type="text/css">
+    .no-fouc {
+      display: none;
+    }
+  </style>
+  <script type="text/javascript">
+    document.documentElement.className = 'no-fouc';
+  </script>
+
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/glyph/227/Tic-tac-toe-512.png">
   <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">

@@ -23,6 +23,7 @@ body {
   margin: auto;
   margin-top: 20px;
   width: 480px;
+  border-radius: 0;
 }
 
 .modal-titles {
@@ -141,6 +142,7 @@ footer {
   }
 
   .btn {
+    position: fixed;
     width: 100px;
   }
 
